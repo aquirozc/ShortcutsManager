@@ -3,7 +3,7 @@ package com.aquirozc.shorcutsmanager.userinterface;
 import javax.swing.*;
 import java.awt.*;
 
-public class ApplicationHome extends JPanel {
+public class Home extends JPanel {
 
     private GridBagConstraints layoutConstraints;
 
@@ -25,11 +25,11 @@ public class ApplicationHome extends JPanel {
     private JButton selectAll;
     private JButton clearSelection;
 
-    private JPanel appList;
+    private ScrollableAppGrid appList;
 
 
 
-    public ApplicationHome(){
+    public Home(){
 
         layoutConstraints = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
@@ -68,9 +68,9 @@ public class ApplicationHome extends JPanel {
         zoomIn = new JButton("+");
         zoomIn.setPreferredSize(new Dimension(35,35));
 
-        appList = new JPanel();
+        appList = new ScrollableAppGrid();
         appList.setPreferredSize(new Dimension(606,303));
-        appList.setBackground(DesignPallete.COLOR_DARK_COMPONENT_BACKGROUND_C);
+        appList.setViewContextBackground(new Color(222,222,222));
 
         selectAll = new JButton("Select all");
         selectAll.setPreferredSize(new Dimension(75,35));
