@@ -1,9 +1,12 @@
 package com.aquirozc.shorcutsmanager.userinterface;
 
+import com.aquirozc.shorcutsmanager.controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
-public class Home extends JPanel {
+public class HomeMenu extends JPanel {
 
     private GridBagConstraints layoutConstraints;
 
@@ -29,7 +32,7 @@ public class Home extends JPanel {
 
 
 
-    public Home(){
+    public HomeMenu(ActionListener listener, ScrollableAppGrid appGallery){
 
         layoutConstraints = new GridBagConstraints();
         this.setLayout(new GridBagLayout());
@@ -65,10 +68,14 @@ public class Home extends JPanel {
 
         zoomOut = new JButton("-");
         zoomOut.setPreferredSize(new Dimension(35,35));
+        zoomOut.setActionCommand(Controller.ZOOM_OUT);
+        zoomOut.addActionListener(listener);
         zoomIn = new JButton("+");
         zoomIn.setPreferredSize(new Dimension(35,35));
+        zoomIn.setActionCommand(Controller.ZOOM_IN);
+        zoomIn.addActionListener(listener);
 
-        appList = new ScrollableAppGrid();
+        appList = appGallery;
         appList.setPreferredSize(new Dimension(606,303));
         appList.setViewContextBackground(new Color(222,222,222));
 
@@ -129,7 +136,7 @@ public class Home extends JPanel {
         layoutConstraints.gridy = 6;
         add(createShorcuts,layoutConstraints);
         normalizeLayoutConstraints();
-        
+
         layoutConstraints.gridx = 0;
         layoutConstraints.gridy = 0;
         layoutConstraints.gridwidth = 3;
@@ -228,6 +235,14 @@ public class Home extends JPanel {
         layoutConstraints.weighty = 0;
         layoutConstraints.weightx = 0;
 
+    }
+
+    public void updateZoomInButtonStatus(boolean value){
+        zoomIn.setEnabled(value);
+    }
+
+    public void updateZoomOutButtonStatus(boolean value){
+        zoomOut.setEnabled(value);
     }
 
 
