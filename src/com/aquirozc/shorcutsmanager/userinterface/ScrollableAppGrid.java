@@ -2,19 +2,22 @@ package com.aquirozc.shorcutsmanager.userinterface;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class ScrollableAppGrid extends JScrollPane {
 
+    private ActionListener buttonListener;
     private int currentZoomLevel;
     private int [][] measures;
     private int totalItems;
-    private JButton applicationItem;
-    private JPanel[] viewContext;
+    private JButton[] applicationItem;
+    private JPanel viewContext;
     private JPanel topLevelContainer;
     private GridLayout viewContextLayout;
 
-    public ScrollableAppGrid(){
+    public ScrollableAppGrid(ActionListener listener){
 
+        buttonListener = listener;
         totalItems = 64;
         currentZoomLevel = 2;
 
@@ -22,7 +25,7 @@ public class ScrollableAppGrid extends JScrollPane {
         populateViewContex();
 
         topLevelContainer = new JPanel();
-        topLevelContainer.add(viewContext[currentZoomLevel]);
+        topLevelContainer.add(viewContext,BorderLayout.CENTER);
 
         this.setViewportView(topLevelContainer);
         this.setBorder(BorderFactory.createLineBorder(new Color(200,200,200),1));
@@ -55,41 +58,40 @@ public class ScrollableAppGrid extends JScrollPane {
 
     public void populateViewContex(){
 
-        viewContext = new JPanel[5];
+        viewContextLayout = new GridLayout(Math.ceilDiv(totalItems, 7- currentZoomLevel),7-currentZoomLevel);
+        viewContextLayout.setHgap(measures[1][currentZoomLevel]);
+        viewContextLayout.setVgap(measures[1][currentZoomLevel]);
 
-        for (int i = 0; i < measures[0].length ; i++) {
+        viewContext = new JPanel();
+        viewContext.setLayout(viewContextLayout);
 
-            viewContextLayout = new GridLayout(Math.ceilDiv(totalItems, 7- i),7-i);
-            viewContextLayout.setHgap(measures[1][i]);
-            viewContextLayout.setVgap(measures[1][i]);
+        applicationItem = new JButton[totalItems];
 
-            viewContext[i] = new JPanel();
-            viewContext[i].setLayout(viewContextLayout);
+        int individualItemSize = measures[0][currentZoomLevel];
 
-            for (int k = 0; k < totalItems; k++){
-                int individualItemSize = measures[0][i];
+            for (int i = 0; i < totalItems; i++){
 
-                applicationItem = new JButton("Item #" + (k+1));
-                applicationItem.setPreferredSize(new Dimension(individualItemSize,individualItemSize));
-                applicationItem.setBorderPainted(false);
-                applicationItem.setFocusPainted(false);
-                applicationItem.setBorder(BorderFactory.createEmptyBorder());
-                applicationItem.setOpaque(true);
-                applicationItem.setBackground(new Color(96,96,96));
-                applicationItem.setForeground(Color.WHITE);
+                applicationItem[i] = new JButton("Item #" + (i+1));
+                applicationItem[i].setPreferredSize(new Dimension(individualItemSize,individualItemSize));
+                applicationItem[i].setBorderPainted(false);
+                applicationItem[i].setFocusPainted(false);
+                applicationItem[i].setBorder(BorderFactory.createEmptyBorder());
+                applicationItem[i].setOpaque(true);
+                applicationItem[i].setBackground(new Color(96,96,96));
+                applicationItem[i].setForeground(Color.WHITE);
+                applicationItem[i].setActionCommand("ITEM");
+                applicationItem[i].addActionListener(buttonListener);
 
-                viewContext[i].add(applicationItem);
+                viewContext.add(applicationItem[i]);
             }
-
-        }
 
     }
 
     public void setViewContextBackground(Color backgroundColor){
-        for (int i = 0; i < 5 ;i++){
-            viewContext[i].setBackground(backgroundColor);
-        }
+
+        viewContext.setBackground(backgroundColor);
         topLevelContainer.setBackground(backgroundColor);
+
     }
 
     public int getCurrentZoomLevel() {
@@ -101,9 +103,24 @@ public class ScrollableAppGrid extends JScrollPane {
     }
 
     public void updateZoomLevel(int nextLevel){
+
         currentZoomLevel = nextLevel;
-        topLevelContainer.remove(0);
-        topLevelContainer.add(viewContext[nextLevel]);
+
+        viewContextLayout = new GridLayout(Math.ceilDiv(totalItems, 7- currentZoomLevel),7-currentZoomLevel);
+        viewContextLayout.setHgap(measures[1][currentZoomLevel]);
+        viewContextLayout.setVgap(measures[1][currentZoomLevel]);
+
+        viewContext = new JPanel();
+        viewContext.setLayout(viewContextLayout);
+
+        int individualItemSize = measures[0][currentZoomLevel];
+
+        for (int i = 0; i < totalItems; i++){
+
+            applicationItem[i].setPreferredSize(new Dimension(individualItemSize,individualItemSize));
+            viewContext.add(applicationItem[i]);
+        }
+        topLevelContainer.add(viewContext,BorderLayout.CENTER);
         setViewportView(topLevelContainer);
 
     }

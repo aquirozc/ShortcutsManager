@@ -20,6 +20,7 @@ public class HomeMenu extends JPanel {
     private JLabel currentDirPath;
     private JLabel currentDirIcon;
 
+    private JButton currentDirUpdateButton;
     private JButton zoomOut;
     private JButton zoomIn;
 
@@ -59,6 +60,9 @@ public class HomeMenu extends JPanel {
         currentDirLabel.setFont(DesignPallete.FONT_HEADER_B);
         currentDirPath = new JLabel("File:///Volumes/Elements/MyApps");
         currentDirPath.setFont(DesignPallete.FONT_PATH_A);
+        currentDirUpdateButton = new JButton("Change");
+        currentDirUpdateButton.setFont(DesignPallete.FONT_BUTTON_B);
+        currentDirUpdateButton.setPreferredSize(new Dimension(75,35));
 
         currentDirIcon = new JLabel();
         currentDirIcon.setPreferredSize(new Dimension(75,75));
@@ -183,25 +187,33 @@ public class HomeMenu extends JPanel {
         layoutConstraints.gridy = 3;
         add(currentDirPath,layoutConstraints);
 
+        layoutConstraints.gridx = 4;
+        layoutConstraints.gridy = 4;
+        add(currentDirUpdateButton,layoutConstraints);
+        normalizeLayoutConstraints();
+
         spanner = new JLabel();
-        spanner.setPreferredSize(new Dimension(222,35));
         layoutConstraints.gridx= 7;
         layoutConstraints.gridy = 4;
+        layoutConstraints.weightx = 1;
         add(spanner,layoutConstraints);
+        normalizeLayoutConstraints();
 
         layoutConstraints.gridx= 8;
         layoutConstraints.gridy = 4;
         add(zoomOut,layoutConstraints);
 
-        layoutConstraints.gridx= 8;
+
+        layoutConstraints.gridx= 9;
         layoutConstraints.gridy = 4;
-        layoutConstraints.anchor = GridBagConstraints.LINE_END;
         add(zoomIn,layoutConstraints);
-        normalizeLayoutConstraints();
+
 
         layoutConstraints.gridx = 4;
         layoutConstraints.gridy = 5;
-        layoutConstraints.gridwidth =5;
+        layoutConstraints.gridwidth = 6;
+        layoutConstraints.weightx = 1;
+        layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
         add(appList,layoutConstraints);
         normalizeLayoutConstraints();
 
@@ -216,7 +228,7 @@ public class HomeMenu extends JPanel {
         add(clearSelection,layoutConstraints);
 
         spanner = new JLabel();
-        layoutConstraints.gridx = 9;
+        layoutConstraints.gridx = 11;
         layoutConstraints.gridy = 1;
         layoutConstraints.weightx = 1;
         layoutConstraints.gridheight = 6;

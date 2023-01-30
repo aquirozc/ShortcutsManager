@@ -19,7 +19,7 @@ public class Controller implements ActionListener {
 
     public Controller(){
 
-        appGallery = new ScrollableAppGrid();
+        appGallery = new ScrollableAppGrid(this);
         
         homeMenuPane = new HomeMenu(this,appGallery);
         homeMenuFrame = new JFrame("iShorcutsManager 2023 (Under developement)");
@@ -59,6 +59,11 @@ public class Controller implements ActionListener {
             }
             homeMenuPane.updateZoomInButtonStatus(true);
             appGallery.updateZoomLevel(nextLevel);
+
+        } else if (action == "ITEM") {
+
+            JButton pressedButton = ((JButton) e.getSource());
+            pressedButton.setBackground(Color.GREEN);
 
         }
 
