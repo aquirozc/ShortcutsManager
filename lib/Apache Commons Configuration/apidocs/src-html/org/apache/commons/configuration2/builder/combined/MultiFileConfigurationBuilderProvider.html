@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> * The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.configuration2.builder.combined;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import java.util.Arrays;<a name="line.19"></a>
+<span class="sourceLineNo">020</span><a name="line.20"></a>
+<span class="sourceLineNo">021</span>import org.apache.commons.configuration2.Configuration;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import org.apache.commons.configuration2.ConfigurationUtils;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import org.apache.commons.configuration2.HierarchicalConfiguration;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import org.apache.commons.configuration2.builder.BuilderConfigurationWrapperFactory;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import org.apache.commons.configuration2.builder.BuilderConfigurationWrapperFactory.EventSourceSupport;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.apache.commons.configuration2.builder.ConfigurationBuilder;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import org.apache.commons.configuration2.event.Event;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.apache.commons.configuration2.event.EventListener;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.apache.commons.configuration2.event.EventType;<a name="line.29"></a>
+<span class="sourceLineNo">030</span>import org.apache.commons.configuration2.ex.ConfigurationException;<a name="line.30"></a>
+<span class="sourceLineNo">031</span>import org.apache.commons.configuration2.reloading.ReloadingController;<a name="line.31"></a>
+<span class="sourceLineNo">032</span>import org.apache.commons.configuration2.reloading.ReloadingControllerSupport;<a name="line.32"></a>
+<span class="sourceLineNo">033</span><a name="line.33"></a>
+<span class="sourceLineNo">034</span>/**<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * &lt;p&gt;<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * A specialized {@code ConfigurationBuilderProvider} implementation for integrating<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * {@link MultiFileConfigurationBuilder} with {@code CombinedConfigurationBuilder}.<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * &lt;/p&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * &lt;p&gt;<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * When using a configuration source managed by {@code MultiFileConfigurationBuilder} it is not sufficient to store the<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * configuration once obtained from the builder in the resulting combined configuration. Rather, it has to be ensured<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * that each access to this configuration queries the builder anew so that it can evaluate its file pattern and return a<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * different configuration if necessary. Therefore, this class returns a specialized wrapper over a<a name="line.43"></a>
+<span class="sourceLineNo">044</span> * {@code MultiFileConfigurationBuilder} which returns a configuration wrapping the builder; so accessing the<a name="line.44"></a>
+<span class="sourceLineNo">045</span> * configuration's properties actually calls back to the builder. This constellation is compatible with the way<a name="line.45"></a>
+<span class="sourceLineNo">046</span> * {@code DynamicCombinedConfiguration} manages its data.<a name="line.46"></a>
+<span class="sourceLineNo">047</span> * &lt;/p&gt;<a name="line.47"></a>
+<span class="sourceLineNo">048</span> *<a name="line.48"></a>
+<span class="sourceLineNo">049</span> * @since 2.0<a name="line.49"></a>
+<span class="sourceLineNo">050</span> */<a name="line.50"></a>
+<span class="sourceLineNo">051</span>public class MultiFileConfigurationBuilderProvider extends BaseConfigurationBuilderProvider {<a name="line.51"></a>
+<span class="sourceLineNo">052</span>    /** Constant for the name of the builder class. */<a name="line.52"></a>
+<span class="sourceLineNo">053</span>    private static final String BUILDER_CLASS = "org.apache.commons.configuration2.builder.combined.MultiFileConfigurationBuilder";<a name="line.53"></a>
+<span class="sourceLineNo">054</span><a name="line.54"></a>
+<span class="sourceLineNo">055</span>    /** Constant for the name of the reloading builder class. */<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    private static final String RELOADING_BUILDER_CLASS = "org.apache.commons.configuration2.builder.combined.ReloadingMultiFileConfigurationBuilder";<a name="line.56"></a>
+<span class="sourceLineNo">057</span><a name="line.57"></a>
+<span class="sourceLineNo">058</span>    /** Constant for the name of the parameters class. */<a name="line.58"></a>
+<span class="sourceLineNo">059</span>    private static final String PARAM_CLASS = "org.apache.commons.configuration2.builder.combined.MultiFileBuilderParametersImpl";<a name="line.59"></a>
+<span class="sourceLineNo">060</span><a name="line.60"></a>
+<span class="sourceLineNo">061</span>    /**<a name="line.61"></a>
+<span class="sourceLineNo">062</span>     * Creates a new instance of {@code MultiFileConfigurationBuilderProvider} and sets the name of the configuration class<a name="line.62"></a>
+<span class="sourceLineNo">063</span>     * to be returned by {@code MultiFileConfigurationBuilder}.<a name="line.63"></a>
+<span class="sourceLineNo">064</span>     *<a name="line.64"></a>
+<span class="sourceLineNo">065</span>     * @param configCls the name of the managed configuration class<a name="line.65"></a>
+<span class="sourceLineNo">066</span>     * @param paramCls the name of the class of the parameters object to configure the managed configuration<a name="line.66"></a>
+<span class="sourceLineNo">067</span>     */<a name="line.67"></a>
+<span class="sourceLineNo">068</span>    public MultiFileConfigurationBuilderProvider(final String configCls, final String paramCls) {<a name="line.68"></a>
+<span class="sourceLineNo">069</span>        super(BUILDER_CLASS, RELOADING_BUILDER_CLASS, configCls, Arrays.asList(paramCls, PARAM_CLASS));<a name="line.69"></a>
+<span class="sourceLineNo">070</span>    }<a name="line.70"></a>
+<span class="sourceLineNo">071</span><a name="line.71"></a>
+<span class="sourceLineNo">072</span>    /**<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     * {@inheritDoc} This implementation lets the super class create a fully configured builder. Then it returns a special<a name="line.73"></a>
+<span class="sourceLineNo">074</span>     * wrapper around it.<a name="line.74"></a>
+<span class="sourceLineNo">075</span>     */<a name="line.75"></a>
+<span class="sourceLineNo">076</span>    @Override<a name="line.76"></a>
+<span class="sourceLineNo">077</span>    public ConfigurationBuilder&lt;? extends Configuration&gt; getConfigurationBuilder(final ConfigurationDeclaration decl) throws ConfigurationException {<a name="line.77"></a>
+<span class="sourceLineNo">078</span>        final ConfigurationBuilder&lt;? extends Configuration&gt; multiBuilder = super.getConfigurationBuilder(decl);<a name="line.78"></a>
+<span class="sourceLineNo">079</span>        final Configuration wrapConfig = createWrapperConfiguration(multiBuilder);<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        return createWrapperBuilder(multiBuilder, wrapConfig);<a name="line.80"></a>
+<span class="sourceLineNo">081</span>    }<a name="line.81"></a>
+<span class="sourceLineNo">082</span><a name="line.82"></a>
+<span class="sourceLineNo">083</span>    /**<a name="line.83"></a>
+<span class="sourceLineNo">084</span>     * Creates a configuration which wraps the specified builder.<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     *<a name="line.85"></a>
+<span class="sourceLineNo">086</span>     * @param builder the builder<a name="line.86"></a>
+<span class="sourceLineNo">087</span>     * @return the wrapping configuration<a name="line.87"></a>
+<span class="sourceLineNo">088</span>     */<a name="line.88"></a>
+<span class="sourceLineNo">089</span>    // It is safe to disable any type checks because we manually determine<a name="line.89"></a>
+<span class="sourceLineNo">090</span>    // the interface class to be passed to BuilderConfigurationWrapperFactory<a name="line.90"></a>
+<span class="sourceLineNo">091</span>    @SuppressWarnings({"unchecked", "rawtypes"})<a name="line.91"></a>
+<span class="sourceLineNo">092</span>    private Configuration createWrapperConfiguration(final ConfigurationBuilder builder) {<a name="line.92"></a>
+<span class="sourceLineNo">093</span>        final Class&lt;?&gt; configClass = ConfigurationUtils.loadClassNoEx(getConfigurationClass());<a name="line.93"></a>
+<span class="sourceLineNo">094</span>        final Class ifcClass = HierarchicalConfiguration.class.isAssignableFrom(configClass) ? HierarchicalConfiguration.class : Configuration.class;<a name="line.94"></a>
+<span class="sourceLineNo">095</span>        return (Configuration) BuilderConfigurationWrapperFactory.createBuilderConfigurationWrapper(ifcClass, builder, EventSourceSupport.BUILDER);<a name="line.95"></a>
+<span class="sourceLineNo">096</span>    }<a name="line.96"></a>
+<span class="sourceLineNo">097</span><a name="line.97"></a>
+<span class="sourceLineNo">098</span>    /**<a name="line.98"></a>
+<span class="sourceLineNo">099</span>     * Creates the {@code ConfigurationBuilder} to be returned by this provider. This is a very simple implementation which<a name="line.99"></a>
+<span class="sourceLineNo">100</span>     * always returns the same wrapper configuration instance. The handling of builder listeners is delegated to the wrapped<a name="line.100"></a>
+<span class="sourceLineNo">101</span>     * {@code MultiFileConfigurationBuilder}. If reloading is support, the builder returned by this method also implements<a name="line.101"></a>
+<span class="sourceLineNo">102</span>     * the {@link ReloadingControllerSupport} interface.<a name="line.102"></a>
+<span class="sourceLineNo">103</span>     *<a name="line.103"></a>
+<span class="sourceLineNo">104</span>     * @param multiBuilder the {@code MultiFileConfigurationBuilder}<a name="line.104"></a>
+<span class="sourceLineNo">105</span>     * @param wrapConfig the configuration to be returned<a name="line.105"></a>
+<span class="sourceLineNo">106</span>     * @return the wrapper builder<a name="line.106"></a>
+<span class="sourceLineNo">107</span>     */<a name="line.107"></a>
+<span class="sourceLineNo">108</span>    private static ConfigurationBuilder&lt;? extends Configuration&gt; createWrapperBuilder(final ConfigurationBuilder&lt;? extends Configuration&gt; multiBuilder,<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        final Configuration wrapConfig) {<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        if (multiBuilder instanceof ReloadingControllerSupport) {<a name="line.110"></a>
+<span class="sourceLineNo">111</span>            return new ReloadableWrapperBuilder(wrapConfig, multiBuilder);<a name="line.111"></a>
+<span class="sourceLineNo">112</span>        }<a name="line.112"></a>
+<span class="sourceLineNo">113</span>        return new WrapperBuilder(wrapConfig, multiBuilder);<a name="line.113"></a>
+<span class="sourceLineNo">114</span>    }<a name="line.114"></a>
+<span class="sourceLineNo">115</span><a name="line.115"></a>
+<span class="sourceLineNo">116</span>    /**<a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * A simple wrapper implementation of the {@code ConfigurationBuilder} interface which returns a fix configuration and<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     * delegates to another builder for event listener management.<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     */<a name="line.119"></a>
+<span class="sourceLineNo">120</span>    private static class WrapperBuilder implements ConfigurationBuilder&lt;Configuration&gt; {<a name="line.120"></a>
+<span class="sourceLineNo">121</span>        /** The configuration managed by this builder. */<a name="line.121"></a>
+<span class="sourceLineNo">122</span>        private final Configuration configuration;<a name="line.122"></a>
+<span class="sourceLineNo">123</span><a name="line.123"></a>
+<span class="sourceLineNo">124</span>        /** The builder to which this instance delegates. */<a name="line.124"></a>
+<span class="sourceLineNo">125</span>        private final ConfigurationBuilder&lt;? extends Configuration&gt; builder;<a name="line.125"></a>
+<span class="sourceLineNo">126</span><a name="line.126"></a>
+<span class="sourceLineNo">127</span>        /**<a name="line.127"></a>
+<span class="sourceLineNo">128</span>         * Creates a new instance of {@code WrapperBuilder}.<a name="line.128"></a>
+<span class="sourceLineNo">129</span>         *<a name="line.129"></a>
+<span class="sourceLineNo">130</span>         * @param conf the managed configuration<a name="line.130"></a>
+<span class="sourceLineNo">131</span>         * @param bldr the underlying builder<a name="line.131"></a>
+<span class="sourceLineNo">132</span>         */<a name="line.132"></a>
+<span class="sourceLineNo">133</span>        public WrapperBuilder(final Configuration conf, final ConfigurationBuilder&lt;? extends Configuration&gt; bldr) {<a name="line.133"></a>
+<span class="sourceLineNo">134</span>            configuration = conf;<a name="line.134"></a>
+<span class="sourceLineNo">135</span>            builder = bldr;<a name="line.135"></a>
+<span class="sourceLineNo">136</span>        }<a name="line.136"></a>
+<span class="sourceLineNo">137</span><a name="line.137"></a>
+<span class="sourceLineNo">138</span>        @Override<a name="line.138"></a>
+<span class="sourceLineNo">139</span>        public Configuration getConfiguration() throws ConfigurationException {<a name="line.139"></a>
+<span class="sourceLineNo">140</span>            return configuration;<a name="line.140"></a>
+<span class="sourceLineNo">141</span>        }<a name="line.141"></a>
+<span class="sourceLineNo">142</span><a name="line.142"></a>
+<span class="sourceLineNo">143</span>        @Override<a name="line.143"></a>
+<span class="sourceLineNo">144</span>        public &lt;T extends Event&gt; void addEventListener(final EventType&lt;T&gt; eventType, final EventListener&lt;? super T&gt; listener) {<a name="line.144"></a>
+<span class="sourceLineNo">145</span>            builder.addEventListener(eventType, listener);<a name="line.145"></a>
+<span class="sourceLineNo">146</span>        }<a name="line.146"></a>
+<span class="sourceLineNo">147</span><a name="line.147"></a>
+<span class="sourceLineNo">148</span>        @Override<a name="line.148"></a>
+<span class="sourceLineNo">149</span>        public &lt;T extends Event&gt; boolean removeEventListener(final EventType&lt;T&gt; eventType, final EventListener&lt;? super T&gt; listener) {<a name="line.149"></a>
+<span class="sourceLineNo">150</span>            return builder.removeEventListener(eventType, listener);<a name="line.150"></a>
+<span class="sourceLineNo">151</span>        }<a name="line.151"></a>
+<span class="sourceLineNo">152</span>    }<a name="line.152"></a>
+<span class="sourceLineNo">153</span><a name="line.153"></a>
+<span class="sourceLineNo">154</span>    /**<a name="line.154"></a>
+<span class="sourceLineNo">155</span>     * A wrapper builder implementation which also provides a {@code ReloadingController}. This class assumes that the<a name="line.155"></a>
+<span class="sourceLineNo">156</span>     * wrapped builder implements {@code ReloadingControllerSupport}. So the reloading controller can be obtained from this<a name="line.156"></a>
+<span class="sourceLineNo">157</span>     * object.<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     */<a name="line.158"></a>
+<span class="sourceLineNo">159</span>    private static class ReloadableWrapperBuilder extends WrapperBuilder implements ReloadingControllerSupport {<a name="line.159"></a>
+<span class="sourceLineNo">160</span>        /** The object for obtaining the reloading controller. */<a name="line.160"></a>
+<span class="sourceLineNo">161</span>        private final ReloadingControllerSupport ctrlSupport;<a name="line.161"></a>
+<span class="sourceLineNo">162</span><a name="line.162"></a>
+<span class="sourceLineNo">163</span>        /**<a name="line.163"></a>
+<span class="sourceLineNo">164</span>         * Creates a new instance of {@code ReloadableWrapperBuilder}.<a name="line.164"></a>
+<span class="sourceLineNo">165</span>         *<a name="line.165"></a>
+<span class="sourceLineNo">166</span>         * @param conf the managed configuration<a name="line.166"></a>
+<span class="sourceLineNo">167</span>         * @param bldr the underlying builder (must implement {@code ReloadingControllerSupport})<a name="line.167"></a>
+<span class="sourceLineNo">168</span>         */<a name="line.168"></a>
+<span class="sourceLineNo">169</span>        public ReloadableWrapperBuilder(final Configuration conf, final ConfigurationBuilder&lt;? extends Configuration&gt; bldr) {<a name="line.169"></a>
+<span class="sourceLineNo">170</span>            super(conf, bldr);<a name="line.170"></a>
+<span class="sourceLineNo">171</span>            ctrlSupport = (ReloadingControllerSupport) bldr;<a name="line.171"></a>
+<span class="sourceLineNo">172</span>        }<a name="line.172"></a>
+<span class="sourceLineNo">173</span><a name="line.173"></a>
+<span class="sourceLineNo">174</span>        @Override<a name="line.174"></a>
+<span class="sourceLineNo">175</span>        public ReloadingController getReloadingController() {<a name="line.175"></a>
+<span class="sourceLineNo">176</span>            return ctrlSupport.getReloadingController();<a name="line.176"></a>
+<span class="sourceLineNo">177</span>        }<a name="line.177"></a>
+<span class="sourceLineNo">178</span>    }<a name="line.178"></a>
+<span class="sourceLineNo">179</span>}<a name="line.179"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

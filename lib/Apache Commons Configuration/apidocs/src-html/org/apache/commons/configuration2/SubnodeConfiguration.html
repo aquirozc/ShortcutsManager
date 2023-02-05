@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> * The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.configuration2;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import org.apache.commons.configuration2.tree.ImmutableNode;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import org.apache.commons.configuration2.tree.InMemoryNodeModel;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import org.apache.commons.configuration2.tree.InMemoryNodeModelSupport;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import org.apache.commons.configuration2.tree.NodeModel;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import org.apache.commons.configuration2.tree.NodeSelector;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import org.apache.commons.configuration2.tree.TrackedNodeModel;<a name="line.24"></a>
+<span class="sourceLineNo">025</span><a name="line.25"></a>
+<span class="sourceLineNo">026</span>/**<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * &lt;p&gt;<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * A specialized hierarchical configuration class with a node model that uses a tracked node of another node model as<a name="line.28"></a>
+<span class="sourceLineNo">029</span> * its root node.<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * &lt;/p&gt;<a name="line.30"></a>
+<span class="sourceLineNo">031</span> * &lt;p&gt;<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * Configurations of this type are initialized with a special {@link NodeModel} operating on a specific tracked node of<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * the parent configuration and the corresponding {@link NodeSelector}. All property accessor methods are evaluated<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * relative to this root node. A good use case for a {@code SubnodeConfiguration} is when multiple properties from a<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * specific sub tree of the whole configuration need to be accessed. Then a {@code SubnodeConfiguration} can be created<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * with the parent node of the affected sub tree as root node. This allows for simpler property keys and is also more<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * efficient.<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * &lt;/p&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * &lt;p&gt;<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * By making use of a tracked node as root node, a {@code SubnodeConfiguration} and its parent configuration initially<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * operate on the same hierarchy of configuration nodes. So if modifications are performed at the subnode configuration,<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * these changes are immediately visible in the parent configuration. Analogously will updates of the parent<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * configuration affect the {@code SubnodeConfiguration} if the sub tree spanned by the {@code SubnodeConfiguration}'s<a name="line.43"></a>
+<span class="sourceLineNo">044</span> * root node is involved.<a name="line.44"></a>
+<span class="sourceLineNo">045</span> * &lt;/p&gt;<a name="line.45"></a>
+<span class="sourceLineNo">046</span> * &lt;p&gt;<a name="line.46"></a>
+<span class="sourceLineNo">047</span> * Note that by making use of a {@code NodeSelector} the {@code SubnodeConfiguration} is not associated with a physical<a name="line.47"></a>
+<span class="sourceLineNo">048</span> * node instance, but the selection criteria stored in the selector are evaluated after each change of the nodes<a name="line.48"></a>
+<span class="sourceLineNo">049</span> * structure. As an example consider that the selector uses a key with an index into a list element, say index 2. Now if<a name="line.49"></a>
+<span class="sourceLineNo">050</span> * an update occurs on the underlying nodes structure which removes the first element in this list structure, the<a name="line.50"></a>
+<span class="sourceLineNo">051</span> * {@code SubnodeConfiguration} still references the element with index 2 which is now another one.<a name="line.51"></a>
+<span class="sourceLineNo">052</span> * &lt;/p&gt;<a name="line.52"></a>
+<span class="sourceLineNo">053</span> * &lt;p&gt;<a name="line.53"></a>
+<span class="sourceLineNo">054</span> * There are also possible changes of the underlying nodes structure which completely detach the<a name="line.54"></a>
+<span class="sourceLineNo">055</span> * {@code SubnodeConfiguration} from its parent configuration. For instance, the key referenced by the<a name="line.55"></a>
+<span class="sourceLineNo">056</span> * {@code SubnodeConfiguration} could be removed in the parent configuration. If this happens, the<a name="line.56"></a>
+<span class="sourceLineNo">057</span> * {@code SubnodeConfiguration} stays functional; however, it now operates on a separate node model than its parent<a name="line.57"></a>
+<span class="sourceLineNo">058</span> * configuration. Changes made by one configuration are no longer visible for the other one (as the node models have no<a name="line.58"></a>
+<span class="sourceLineNo">059</span> * longer overlapping nodes, there is no way to have a synchronization here).<a name="line.59"></a>
+<span class="sourceLineNo">060</span> * &lt;/p&gt;<a name="line.60"></a>
+<span class="sourceLineNo">061</span> * &lt;p&gt;<a name="line.61"></a>
+<span class="sourceLineNo">062</span> * When a subnode configuration is created, it inherits the settings of its parent configuration, e.g. some flags like<a name="line.62"></a>
+<span class="sourceLineNo">063</span> * the {@code throwExceptionOnMissing} flag or the settings for handling list delimiters) or the expression engine. If<a name="line.63"></a>
+<span class="sourceLineNo">064</span> * these settings are changed later in either the subnode or the parent configuration, the changes are not visible for<a name="line.64"></a>
+<span class="sourceLineNo">065</span> * each other. So you could create a subnode configuration, and change its expression engine without affecting the<a name="line.65"></a>
+<span class="sourceLineNo">066</span> * parent configuration.<a name="line.66"></a>
+<span class="sourceLineNo">067</span> * &lt;/p&gt;<a name="line.67"></a>
+<span class="sourceLineNo">068</span> * &lt;p&gt;<a name="line.68"></a>
+<span class="sourceLineNo">069</span> * Because the {@code SubnodeConfiguration} operates on the same nodes structure as its parent it uses the same<a name="line.69"></a>
+<span class="sourceLineNo">070</span> * {@code Synchronizer} instance per default. This means that locks held on one {@code SubnodeConfiguration} also impact<a name="line.70"></a>
+<span class="sourceLineNo">071</span> * the parent configuration and all of its other {@code SubnodeConfiguration} objects. You should not change this<a name="line.71"></a>
+<span class="sourceLineNo">072</span> * without a good reason! Otherwise, there is the risk of data corruption when multiple threads access these<a name="line.72"></a>
+<span class="sourceLineNo">073</span> * configuration concurrently.<a name="line.73"></a>
+<span class="sourceLineNo">074</span> * &lt;/p&gt;<a name="line.74"></a>
+<span class="sourceLineNo">075</span> * &lt;p&gt;<a name="line.75"></a>
+<span class="sourceLineNo">076</span> * From its purpose this class is quite similar to {@link SubsetConfiguration}. The difference is that a subset<a name="line.76"></a>
+<span class="sourceLineNo">077</span> * configuration of a hierarchical configuration may combine multiple configuration nodes from different sub trees of<a name="line.77"></a>
+<span class="sourceLineNo">078</span> * the configuration, while all nodes in a subnode configuration belong to the same sub tree. If an application can live<a name="line.78"></a>
+<span class="sourceLineNo">079</span> * with this limitation, it is recommended to use this class instead of {@code SubsetConfiguration} because creating a<a name="line.79"></a>
+<span class="sourceLineNo">080</span> * subset configuration is more expensive than creating a subnode configuration.<a name="line.80"></a>
+<span class="sourceLineNo">081</span> * &lt;/p&gt;<a name="line.81"></a>
+<span class="sourceLineNo">082</span> * &lt;p&gt;<a name="line.82"></a>
+<span class="sourceLineNo">083</span> * It is strongly recommended to create {@code SubnodeConfiguration} instances only through the<a name="line.83"></a>
+<span class="sourceLineNo">084</span> * {@code configurationAt()} methods of a hierarchical configuration. These methods ensure that all necessary<a name="line.84"></a>
+<span class="sourceLineNo">085</span> * initializations are done. Creating instances manually without doing proper initialization may break some of the<a name="line.85"></a>
+<span class="sourceLineNo">086</span> * functionality provided by this class.<a name="line.86"></a>
+<span class="sourceLineNo">087</span> * &lt;/p&gt;<a name="line.87"></a>
+<span class="sourceLineNo">088</span> *<a name="line.88"></a>
+<span class="sourceLineNo">089</span> * @since 1.3<a name="line.89"></a>
+<span class="sourceLineNo">090</span> */<a name="line.90"></a>
+<span class="sourceLineNo">091</span>public class SubnodeConfiguration extends BaseHierarchicalConfiguration {<a name="line.91"></a>
+<span class="sourceLineNo">092</span>    /** Stores the parent configuration. */<a name="line.92"></a>
+<span class="sourceLineNo">093</span>    private final BaseHierarchicalConfiguration parent;<a name="line.93"></a>
+<span class="sourceLineNo">094</span><a name="line.94"></a>
+<span class="sourceLineNo">095</span>    /** The node selector selecting the root node of this configuration. */<a name="line.95"></a>
+<span class="sourceLineNo">096</span>    private final NodeSelector rootSelector;<a name="line.96"></a>
+<span class="sourceLineNo">097</span><a name="line.97"></a>
+<span class="sourceLineNo">098</span>    /**<a name="line.98"></a>
+<span class="sourceLineNo">099</span>     * Creates a new instance of {@code SubnodeConfiguration} and initializes it with all relevant properties.<a name="line.99"></a>
+<span class="sourceLineNo">100</span>     *<a name="line.100"></a>
+<span class="sourceLineNo">101</span>     * @param parent the parent configuration<a name="line.101"></a>
+<span class="sourceLineNo">102</span>     * @param model the {@code TrackedNodeModel} to be used for this configuration<a name="line.102"></a>
+<span class="sourceLineNo">103</span>     * @throws IllegalArgumentException if a required argument is missing<a name="line.103"></a>
+<span class="sourceLineNo">104</span>     */<a name="line.104"></a>
+<span class="sourceLineNo">105</span>    public SubnodeConfiguration(final BaseHierarchicalConfiguration parent, final TrackedNodeModel model) {<a name="line.105"></a>
+<span class="sourceLineNo">106</span>        super(model);<a name="line.106"></a>
+<span class="sourceLineNo">107</span>        if (parent == null) {<a name="line.107"></a>
+<span class="sourceLineNo">108</span>            throw new IllegalArgumentException("Parent configuration must not be null!");<a name="line.108"></a>
+<span class="sourceLineNo">109</span>        }<a name="line.109"></a>
+<span class="sourceLineNo">110</span>        if (model == null) {<a name="line.110"></a>
+<span class="sourceLineNo">111</span>            throw new IllegalArgumentException("Node model must not be null!");<a name="line.111"></a>
+<span class="sourceLineNo">112</span>        }<a name="line.112"></a>
+<span class="sourceLineNo">113</span><a name="line.113"></a>
+<span class="sourceLineNo">114</span>        this.parent = parent;<a name="line.114"></a>
+<span class="sourceLineNo">115</span>        rootSelector = model.getSelector();<a name="line.115"></a>
+<span class="sourceLineNo">116</span>    }<a name="line.116"></a>
+<span class="sourceLineNo">117</span><a name="line.117"></a>
+<span class="sourceLineNo">118</span>    /**<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     * Returns the parent configuration of this subnode configuration.<a name="line.119"></a>
+<span class="sourceLineNo">120</span>     *<a name="line.120"></a>
+<span class="sourceLineNo">121</span>     * @return the parent configuration<a name="line.121"></a>
+<span class="sourceLineNo">122</span>     */<a name="line.122"></a>
+<span class="sourceLineNo">123</span>    public BaseHierarchicalConfiguration getParent() {<a name="line.123"></a>
+<span class="sourceLineNo">124</span>        return parent;<a name="line.124"></a>
+<span class="sourceLineNo">125</span>    }<a name="line.125"></a>
+<span class="sourceLineNo">126</span><a name="line.126"></a>
+<span class="sourceLineNo">127</span>    /**<a name="line.127"></a>
+<span class="sourceLineNo">128</span>     * Returns the selector to the root node of this configuration.<a name="line.128"></a>
+<span class="sourceLineNo">129</span>     *<a name="line.129"></a>
+<span class="sourceLineNo">130</span>     * @return the {@code NodeSelector} to the root node<a name="line.130"></a>
+<span class="sourceLineNo">131</span>     */<a name="line.131"></a>
+<span class="sourceLineNo">132</span>    public NodeSelector getRootSelector() {<a name="line.132"></a>
+<span class="sourceLineNo">133</span>        return rootSelector;<a name="line.133"></a>
+<span class="sourceLineNo">134</span>    }<a name="line.134"></a>
+<span class="sourceLineNo">135</span><a name="line.135"></a>
+<span class="sourceLineNo">136</span>    /**<a name="line.136"></a>
+<span class="sourceLineNo">137</span>     * Closes this sub configuration. This method closes the underlying {@link TrackedNodeModel}, thus causing the tracked<a name="line.137"></a>
+<span class="sourceLineNo">138</span>     * node acting as root node to be released. Per default, this happens automatically when the model is claimed by the<a name="line.138"></a>
+<span class="sourceLineNo">139</span>     * garbage collector. By calling this method explicitly, it can be indicated that this configuration is no longer used<a name="line.139"></a>
+<span class="sourceLineNo">140</span>     * and that resources used by it can be freed immediately.<a name="line.140"></a>
+<span class="sourceLineNo">141</span>     */<a name="line.141"></a>
+<span class="sourceLineNo">142</span>    public void close() {<a name="line.142"></a>
+<span class="sourceLineNo">143</span>        getTrackedModel().close();<a name="line.143"></a>
+<span class="sourceLineNo">144</span>    }<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>    /**<a name="line.146"></a>
+<span class="sourceLineNo">147</span>     * {@inheritDoc} This implementation returns a newly created node model with the correct root node set. Note that this<a name="line.147"></a>
+<span class="sourceLineNo">148</span>     * model is not used for property access, but only made available to clients that need to operate on the node structure<a name="line.148"></a>
+<span class="sourceLineNo">149</span>     * of this {@code SubnodeConfiguration}. Be aware that the implementation of this method is not very efficient.<a name="line.149"></a>
+<span class="sourceLineNo">150</span>     */<a name="line.150"></a>
+<span class="sourceLineNo">151</span>    @Override<a name="line.151"></a>
+<span class="sourceLineNo">152</span>    public InMemoryNodeModel getNodeModel() {<a name="line.152"></a>
+<span class="sourceLineNo">153</span>        final ImmutableNode root = getParent().getNodeModel().getTrackedNode(getRootSelector());<a name="line.153"></a>
+<span class="sourceLineNo">154</span>        return new InMemoryNodeModel(root);<a name="line.154"></a>
+<span class="sourceLineNo">155</span>    }<a name="line.155"></a>
+<span class="sourceLineNo">156</span><a name="line.156"></a>
+<span class="sourceLineNo">157</span>    /**<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     * Returns the node model of the root configuration. {@code SubnodeConfiguration} instances created from a hierarchical<a name="line.158"></a>
+<span class="sourceLineNo">159</span>     * configuration operate on the same node model, using different nodes as their local root nodes. With this method the<a name="line.159"></a>
+<span class="sourceLineNo">160</span>     * top-level node model can be obtained. It works even in constellations where a {@code SubnodeConfiguration} has been<a name="line.160"></a>
+<span class="sourceLineNo">161</span>     * created from another {@code SubnodeConfiguration}.<a name="line.161"></a>
+<span class="sourceLineNo">162</span>     *<a name="line.162"></a>
+<span class="sourceLineNo">163</span>     * @return the root node model<a name="line.163"></a>
+<span class="sourceLineNo">164</span>     * @since 2.2<a name="line.164"></a>
+<span class="sourceLineNo">165</span>     */<a name="line.165"></a>
+<span class="sourceLineNo">166</span>    public InMemoryNodeModel getRootNodeModel() {<a name="line.166"></a>
+<span class="sourceLineNo">167</span>        if (getParent() instanceof SubnodeConfiguration) {<a name="line.167"></a>
+<span class="sourceLineNo">168</span>            return ((SubnodeConfiguration) getParent()).getRootNodeModel();<a name="line.168"></a>
+<span class="sourceLineNo">169</span>        }<a name="line.169"></a>
+<span class="sourceLineNo">170</span>        return getParent().getNodeModel();<a name="line.170"></a>
+<span class="sourceLineNo">171</span>    }<a name="line.171"></a>
+<span class="sourceLineNo">172</span><a name="line.172"></a>
+<span class="sourceLineNo">173</span>    /**<a name="line.173"></a>
+<span class="sourceLineNo">174</span>     * {@inheritDoc} This implementation returns a copy of the current node model with the same settings. However, it has to<a name="line.174"></a>
+<span class="sourceLineNo">175</span>     * be ensured that the track count for the node selector is increased.<a name="line.175"></a>
+<span class="sourceLineNo">176</span>     *<a name="line.176"></a>
+<span class="sourceLineNo">177</span>     * @return the node model for the clone<a name="line.177"></a>
+<span class="sourceLineNo">178</span>     */<a name="line.178"></a>
+<span class="sourceLineNo">179</span>    @Override<a name="line.179"></a>
+<span class="sourceLineNo">180</span>    protected NodeModel&lt;ImmutableNode&gt; cloneNodeModel() {<a name="line.180"></a>
+<span class="sourceLineNo">181</span>        final InMemoryNodeModel parentModel = (InMemoryNodeModel) getParent().getModel();<a name="line.181"></a>
+<span class="sourceLineNo">182</span>        parentModel.trackNode(getRootSelector(), getParent());<a name="line.182"></a>
+<span class="sourceLineNo">183</span>        return new TrackedNodeModel(getParent(), getRootSelector(), true);<a name="line.183"></a>
+<span class="sourceLineNo">184</span>    }<a name="line.184"></a>
+<span class="sourceLineNo">185</span><a name="line.185"></a>
+<span class="sourceLineNo">186</span>    /**<a name="line.186"></a>
+<span class="sourceLineNo">187</span>     * {@inheritDoc} This implementation returns a sub selector of the selector of this configuration.<a name="line.187"></a>
+<span class="sourceLineNo">188</span>     */<a name="line.188"></a>
+<span class="sourceLineNo">189</span>    @Override<a name="line.189"></a>
+<span class="sourceLineNo">190</span>    protected NodeSelector getSubConfigurationNodeSelector(final String key) {<a name="line.190"></a>
+<span class="sourceLineNo">191</span>        return getRootSelector().subSelector(key);<a name="line.191"></a>
+<span class="sourceLineNo">192</span>    }<a name="line.192"></a>
+<span class="sourceLineNo">193</span><a name="line.193"></a>
+<span class="sourceLineNo">194</span>    /**<a name="line.194"></a>
+<span class="sourceLineNo">195</span>     * {@inheritDoc} This implementation returns the parent model of the {@link TrackedNodeModel} used by this<a name="line.195"></a>
+<span class="sourceLineNo">196</span>     * configuration.<a name="line.196"></a>
+<span class="sourceLineNo">197</span>     */<a name="line.197"></a>
+<span class="sourceLineNo">198</span>    @Override<a name="line.198"></a>
+<span class="sourceLineNo">199</span>    protected InMemoryNodeModel getSubConfigurationParentModel() {<a name="line.199"></a>
+<span class="sourceLineNo">200</span>        return getTrackedModel().getParentModel();<a name="line.200"></a>
+<span class="sourceLineNo">201</span>    }<a name="line.201"></a>
+<span class="sourceLineNo">202</span><a name="line.202"></a>
+<span class="sourceLineNo">203</span>    /**<a name="line.203"></a>
+<span class="sourceLineNo">204</span>     * {@inheritDoc} This implementation makes sure that the correct node model (the one of the parent) is used for the new<a name="line.204"></a>
+<span class="sourceLineNo">205</span>     * sub configuration.<a name="line.205"></a>
+<span class="sourceLineNo">206</span>     */<a name="line.206"></a>
+<span class="sourceLineNo">207</span>    @Override<a name="line.207"></a>
+<span class="sourceLineNo">208</span>    protected SubnodeConfiguration createSubConfigurationForTrackedNode(final NodeSelector selector, final InMemoryNodeModelSupport parentModelSupport) {<a name="line.208"></a>
+<span class="sourceLineNo">209</span>        return super.createSubConfigurationForTrackedNode(selector, getParent());<a name="line.209"></a>
+<span class="sourceLineNo">210</span>    }<a name="line.210"></a>
+<span class="sourceLineNo">211</span><a name="line.211"></a>
+<span class="sourceLineNo">212</span>    /**<a name="line.212"></a>
+<span class="sourceLineNo">213</span>     * Convenience method that returns the tracked model used by this sub configuration.<a name="line.213"></a>
+<span class="sourceLineNo">214</span>     *<a name="line.214"></a>
+<span class="sourceLineNo">215</span>     * @return the {@code TrackedNodeModel}<a name="line.215"></a>
+<span class="sourceLineNo">216</span>     */<a name="line.216"></a>
+<span class="sourceLineNo">217</span>    private TrackedNodeModel getTrackedModel() {<a name="line.217"></a>
+<span class="sourceLineNo">218</span>        return (TrackedNodeModel) getModel();<a name="line.218"></a>
+<span class="sourceLineNo">219</span>    }<a name="line.219"></a>
+<span class="sourceLineNo">220</span>}<a name="line.220"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

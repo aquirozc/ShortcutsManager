@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> * The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.configuration2.reloading;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import org.apache.commons.configuration2.event.Event;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import org.apache.commons.configuration2.event.EventListener;<a name="line.20"></a>
+<span class="sourceLineNo">021</span>import org.apache.commons.configuration2.event.EventListenerList;<a name="line.21"></a>
+<span class="sourceLineNo">022</span>import org.apache.commons.configuration2.event.EventSource;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import org.apache.commons.configuration2.event.EventType;<a name="line.23"></a>
+<span class="sourceLineNo">024</span><a name="line.24"></a>
+<span class="sourceLineNo">025</span>/**<a name="line.25"></a>
+<span class="sourceLineNo">026</span> * &lt;p&gt;<a name="line.26"></a>
+<span class="sourceLineNo">027</span> * A class for adding support for reload operations in a generic way.<a name="line.27"></a>
+<span class="sourceLineNo">028</span> * &lt;/p&gt;<a name="line.28"></a>
+<span class="sourceLineNo">029</span> * &lt;p&gt;<a name="line.29"></a>
+<span class="sourceLineNo">030</span> * A {@code ReloadingController} monitors a specific source and triggers reloading events if necessary. So it does not<a name="line.30"></a>
+<span class="sourceLineNo">031</span> * perform reloading itself, but only sends out notifications when it thinks that this should be done. This allows for a<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * very generic setup in which different components involved in reloading are loosely coupled via events.<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * &lt;/p&gt;<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * &lt;p&gt;<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * A typical usage scenario is as follows:<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * &lt;/p&gt;<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * &lt;ul&gt;<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * &lt;li&gt;A {@code ReloadingController} instance is created and initialized with a {@link ReloadingDetector} object.&lt;/li&gt;<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * &lt;li&gt;A number of {@link EventListener} objects for reloading events can be registered at the controller.&lt;/li&gt;<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * &lt;li&gt;Now the controller's {@code checkForReloading()} method is called whenever a check is to be performed. This could<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * be done for instance by a timer in regular intervals or by any other means appropriate for a specific<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * application.&lt;/li&gt;<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * &lt;li&gt;When a check reveals that a reload operation is necessary all registered event listeners are notified.&lt;/li&gt;<a name="line.43"></a>
+<span class="sourceLineNo">044</span> * &lt;li&gt;Typically one of the listeners is responsible to perform the actual reload operation. (How this is done is not in<a name="line.44"></a>
+<span class="sourceLineNo">045</span> * the scope of the controller object.) After this has been done, the controller's {@code resetReloadingState()} method<a name="line.45"></a>
+<span class="sourceLineNo">046</span> * must be called. It tells the controller that the last notification has been processed and that new checks are<a name="line.46"></a>
+<span class="sourceLineNo">047</span> * possible again. It is important that this method is called. Otherwise, {@code checkForReloading()} will not do any<a name="line.47"></a>
+<span class="sourceLineNo">048</span> * new checks or send out event notifications any more.&lt;/li&gt;<a name="line.48"></a>
+<span class="sourceLineNo">049</span> * &lt;/ul&gt;<a name="line.49"></a>
+<span class="sourceLineNo">050</span> * &lt;p&gt;<a name="line.50"></a>
+<span class="sourceLineNo">051</span> * This class can be accessed from multiple threads concurrently. It shields the associated {@link ReloadingDetector}<a name="line.51"></a>
+<span class="sourceLineNo">052</span> * object for concurrent access, so that a concrete detector implementation does not have to be thread-safe.<a name="line.52"></a>
+<span class="sourceLineNo">053</span> * &lt;/p&gt;<a name="line.53"></a>
+<span class="sourceLineNo">054</span> *<a name="line.54"></a>
+<span class="sourceLineNo">055</span> * @since 2.0<a name="line.55"></a>
+<span class="sourceLineNo">056</span> */<a name="line.56"></a>
+<span class="sourceLineNo">057</span>public class ReloadingController implements EventSource {<a name="line.57"></a>
+<span class="sourceLineNo">058</span>    /** Stores a reference to the reloading detector. */<a name="line.58"></a>
+<span class="sourceLineNo">059</span>    private final ReloadingDetector detector;<a name="line.59"></a>
+<span class="sourceLineNo">060</span><a name="line.60"></a>
+<span class="sourceLineNo">061</span>    /** The helper object which manages the registered event listeners. */<a name="line.61"></a>
+<span class="sourceLineNo">062</span>    private final EventListenerList listeners;<a name="line.62"></a>
+<span class="sourceLineNo">063</span><a name="line.63"></a>
+<span class="sourceLineNo">064</span>    /** A flag whether this controller is in reloading state. */<a name="line.64"></a>
+<span class="sourceLineNo">065</span>    private boolean reloadingState;<a name="line.65"></a>
+<span class="sourceLineNo">066</span><a name="line.66"></a>
+<span class="sourceLineNo">067</span>    /**<a name="line.67"></a>
+<span class="sourceLineNo">068</span>     * Creates a new instance of {@code ReloadingController} and associates it with the given {@code ReloadingDetector}<a name="line.68"></a>
+<span class="sourceLineNo">069</span>     * object.<a name="line.69"></a>
+<span class="sourceLineNo">070</span>     *<a name="line.70"></a>
+<span class="sourceLineNo">071</span>     * @param detect the {@code ReloadingDetector} (must not be &lt;b&gt;null&lt;/b&gt;)<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * @throws IllegalArgumentException if the detector is undefined<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     */<a name="line.73"></a>
+<span class="sourceLineNo">074</span>    public ReloadingController(final ReloadingDetector detect) {<a name="line.74"></a>
+<span class="sourceLineNo">075</span>        if (detect == null) {<a name="line.75"></a>
+<span class="sourceLineNo">076</span>            throw new IllegalArgumentException("ReloadingDetector must not be null!");<a name="line.76"></a>
+<span class="sourceLineNo">077</span>        }<a name="line.77"></a>
+<span class="sourceLineNo">078</span><a name="line.78"></a>
+<span class="sourceLineNo">079</span>        detector = detect;<a name="line.79"></a>
+<span class="sourceLineNo">080</span>        listeners = new EventListenerList();<a name="line.80"></a>
+<span class="sourceLineNo">081</span>    }<a name="line.81"></a>
+<span class="sourceLineNo">082</span><a name="line.82"></a>
+<span class="sourceLineNo">083</span>    /**<a name="line.83"></a>
+<span class="sourceLineNo">084</span>     * Returns the {@code ReloadingDetector} used by this controller.<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     *<a name="line.85"></a>
+<span class="sourceLineNo">086</span>     * @return the {@code ReloadingDetector}<a name="line.86"></a>
+<span class="sourceLineNo">087</span>     */<a name="line.87"></a>
+<span class="sourceLineNo">088</span>    public ReloadingDetector getDetector() {<a name="line.88"></a>
+<span class="sourceLineNo">089</span>        return detector;<a name="line.89"></a>
+<span class="sourceLineNo">090</span>    }<a name="line.90"></a>
+<span class="sourceLineNo">091</span><a name="line.91"></a>
+<span class="sourceLineNo">092</span>    /**<a name="line.92"></a>
+<span class="sourceLineNo">093</span>     * {@inheritDoc} This class generates events of type {@code ReloadingEvent}.<a name="line.93"></a>
+<span class="sourceLineNo">094</span>     */<a name="line.94"></a>
+<span class="sourceLineNo">095</span>    @Override<a name="line.95"></a>
+<span class="sourceLineNo">096</span>    public &lt;T extends Event&gt; void addEventListener(final EventType&lt;T&gt; eventType, final EventListener&lt;? super T&gt; listener) {<a name="line.96"></a>
+<span class="sourceLineNo">097</span>        listeners.addEventListener(eventType, listener);<a name="line.97"></a>
+<span class="sourceLineNo">098</span>    }<a name="line.98"></a>
+<span class="sourceLineNo">099</span><a name="line.99"></a>
+<span class="sourceLineNo">100</span>    @Override<a name="line.100"></a>
+<span class="sourceLineNo">101</span>    public &lt;T extends Event&gt; boolean removeEventListener(final EventType&lt;T&gt; eventType, final EventListener&lt;? super T&gt; listener) {<a name="line.101"></a>
+<span class="sourceLineNo">102</span>        return listeners.removeEventListener(eventType, listener);<a name="line.102"></a>
+<span class="sourceLineNo">103</span>    }<a name="line.103"></a>
+<span class="sourceLineNo">104</span><a name="line.104"></a>
+<span class="sourceLineNo">105</span>    /**<a name="line.105"></a>
+<span class="sourceLineNo">106</span>     * Tests whether this controller is in &lt;em&gt;reloading state&lt;/em&gt;. A return value of &lt;b&gt;true&lt;/b&gt; means that a previous<a name="line.106"></a>
+<span class="sourceLineNo">107</span>     * invocation of {@code checkForReloading()} has detected the necessity for a reload operation, but<a name="line.107"></a>
+<span class="sourceLineNo">108</span>     * {@code resetReloadingState()} has not been called yet. In this state no further reloading checks are possible.<a name="line.108"></a>
+<span class="sourceLineNo">109</span>     *<a name="line.109"></a>
+<span class="sourceLineNo">110</span>     * @return a flag whether this controller is in reloading state<a name="line.110"></a>
+<span class="sourceLineNo">111</span>     */<a name="line.111"></a>
+<span class="sourceLineNo">112</span>    public synchronized boolean isInReloadingState() {<a name="line.112"></a>
+<span class="sourceLineNo">113</span>        return reloadingState;<a name="line.113"></a>
+<span class="sourceLineNo">114</span>    }<a name="line.114"></a>
+<span class="sourceLineNo">115</span><a name="line.115"></a>
+<span class="sourceLineNo">116</span>    /**<a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * Performs a check whether a reload operation is necessary. This method has to be called to trigger the generation of<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     * reloading events. It delegates to the associated {@link ReloadingDetector} and sends out notifications if necessary.<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     * The argument can be an arbitrary data object; it will be part of the event notification sent out when a reload<a name="line.119"></a>
+<span class="sourceLineNo">120</span>     * operation should be performed. The return value indicates whether a change was detected and an event was sent. Once a<a name="line.120"></a>
+<span class="sourceLineNo">121</span>     * need for a reload is detected, this controller is in &lt;em&gt;reloading state&lt;/em&gt;. Until this state is reset (by calling<a name="line.121"></a>
+<span class="sourceLineNo">122</span>     * {@link #resetReloadingState()}), no further reloading checks are performed by this method, and no events are fired;<a name="line.122"></a>
+<span class="sourceLineNo">123</span>     * it then returns always &lt;b&gt;true&lt;/b&gt;.<a name="line.123"></a>
+<span class="sourceLineNo">124</span>     *<a name="line.124"></a>
+<span class="sourceLineNo">125</span>     * @param data additional data for an event notification<a name="line.125"></a>
+<span class="sourceLineNo">126</span>     * @return a flag whether a reload operation is necessary<a name="line.126"></a>
+<span class="sourceLineNo">127</span>     */<a name="line.127"></a>
+<span class="sourceLineNo">128</span>    public boolean checkForReloading(final Object data) {<a name="line.128"></a>
+<span class="sourceLineNo">129</span>        boolean sendEvent = false;<a name="line.129"></a>
+<span class="sourceLineNo">130</span>        synchronized (this) {<a name="line.130"></a>
+<span class="sourceLineNo">131</span>            if (isInReloadingState()) {<a name="line.131"></a>
+<span class="sourceLineNo">132</span>                return true;<a name="line.132"></a>
+<span class="sourceLineNo">133</span>            }<a name="line.133"></a>
+<span class="sourceLineNo">134</span>            if (getDetector().isReloadingRequired()) {<a name="line.134"></a>
+<span class="sourceLineNo">135</span>                sendEvent = true;<a name="line.135"></a>
+<span class="sourceLineNo">136</span>                reloadingState = true;<a name="line.136"></a>
+<span class="sourceLineNo">137</span>            }<a name="line.137"></a>
+<span class="sourceLineNo">138</span>        }<a name="line.138"></a>
+<span class="sourceLineNo">139</span><a name="line.139"></a>
+<span class="sourceLineNo">140</span>        if (sendEvent) {<a name="line.140"></a>
+<span class="sourceLineNo">141</span>            listeners.fire(new ReloadingEvent(this, data));<a name="line.141"></a>
+<span class="sourceLineNo">142</span>            return true;<a name="line.142"></a>
+<span class="sourceLineNo">143</span>        }<a name="line.143"></a>
+<span class="sourceLineNo">144</span>        return false;<a name="line.144"></a>
+<span class="sourceLineNo">145</span>    }<a name="line.145"></a>
+<span class="sourceLineNo">146</span><a name="line.146"></a>
+<span class="sourceLineNo">147</span>    /**<a name="line.147"></a>
+<span class="sourceLineNo">148</span>     * Resets the reloading state. This tells the controller that reloading has been performed and new checks are possible<a name="line.148"></a>
+<span class="sourceLineNo">149</span>     * again. If this controller is not in reloading state, this method has no effect.<a name="line.149"></a>
+<span class="sourceLineNo">150</span>     */<a name="line.150"></a>
+<span class="sourceLineNo">151</span>    public synchronized void resetReloadingState() {<a name="line.151"></a>
+<span class="sourceLineNo">152</span>        if (isInReloadingState()) {<a name="line.152"></a>
+<span class="sourceLineNo">153</span>            getDetector().reloadingPerformed();<a name="line.153"></a>
+<span class="sourceLineNo">154</span>            reloadingState = false;<a name="line.154"></a>
+<span class="sourceLineNo">155</span>        }<a name="line.155"></a>
+<span class="sourceLineNo">156</span>    }<a name="line.156"></a>
+<span class="sourceLineNo">157</span>}<a name="line.157"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

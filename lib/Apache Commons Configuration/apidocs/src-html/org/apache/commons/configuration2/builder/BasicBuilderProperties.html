@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../../../../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<span class="sourceLineNo">004</span> * this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<span class="sourceLineNo">005</span> * The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<span class="sourceLineNo">006</span> * (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<span class="sourceLineNo">007</span> * the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<span class="sourceLineNo">008</span> *<a name="line.8"></a>
+<span class="sourceLineNo">009</span> *     http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<span class="sourceLineNo">010</span> *<a name="line.10"></a>
+<span class="sourceLineNo">011</span> * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> * See the License for the specific language governing permissions and<a name="line.14"></a>
+<span class="sourceLineNo">015</span> * limitations under the License.<a name="line.15"></a>
+<span class="sourceLineNo">016</span> */<a name="line.16"></a>
+<span class="sourceLineNo">017</span>package org.apache.commons.configuration2.builder;<a name="line.17"></a>
+<span class="sourceLineNo">018</span><a name="line.18"></a>
+<span class="sourceLineNo">019</span>import java.util.Collection;<a name="line.19"></a>
+<span class="sourceLineNo">020</span>import java.util.Map;<a name="line.20"></a>
+<span class="sourceLineNo">021</span><a name="line.21"></a>
+<span class="sourceLineNo">022</span>import org.apache.commons.configuration2.ConfigurationDecoder;<a name="line.22"></a>
+<span class="sourceLineNo">023</span>import org.apache.commons.configuration2.io.ConfigurationLogger;<a name="line.23"></a>
+<span class="sourceLineNo">024</span>import org.apache.commons.configuration2.beanutils.BeanHelper;<a name="line.24"></a>
+<span class="sourceLineNo">025</span>import org.apache.commons.configuration2.convert.ConversionHandler;<a name="line.25"></a>
+<span class="sourceLineNo">026</span>import org.apache.commons.configuration2.convert.ListDelimiterHandler;<a name="line.26"></a>
+<span class="sourceLineNo">027</span>import org.apache.commons.configuration2.interpol.ConfigurationInterpolator;<a name="line.27"></a>
+<span class="sourceLineNo">028</span>import org.apache.commons.configuration2.interpol.Lookup;<a name="line.28"></a>
+<span class="sourceLineNo">029</span>import org.apache.commons.configuration2.sync.Synchronizer;<a name="line.29"></a>
+<span class="sourceLineNo">030</span><a name="line.30"></a>
+<span class="sourceLineNo">031</span>/**<a name="line.31"></a>
+<span class="sourceLineNo">032</span> * &lt;p&gt;<a name="line.32"></a>
+<span class="sourceLineNo">033</span> * Definition of a properties interface for basic parameters which are supported by all {@link ConfigurationBuilder}<a name="line.33"></a>
+<span class="sourceLineNo">034</span> * implementations derived from {@link BasicConfigurationBuilder}.<a name="line.34"></a>
+<span class="sourceLineNo">035</span> * &lt;/p&gt;<a name="line.35"></a>
+<span class="sourceLineNo">036</span> * &lt;p&gt;<a name="line.36"></a>
+<span class="sourceLineNo">037</span> * This interface defines the single properties supported by a parameters object. Properties can be set using a fluent<a name="line.37"></a>
+<span class="sourceLineNo">038</span> * API making it convenient for client code to specify concrete property values in a single statement.<a name="line.38"></a>
+<span class="sourceLineNo">039</span> * &lt;/p&gt;<a name="line.39"></a>
+<span class="sourceLineNo">040</span> * &lt;p&gt;<a name="line.40"></a>
+<span class="sourceLineNo">041</span> * &lt;strong&gt;Important note:&lt;/strong&gt; This interface is not intended to be implemented by client code! It defines a set of<a name="line.41"></a>
+<span class="sourceLineNo">042</span> * available properties and may be extended even in minor releases.<a name="line.42"></a>
+<span class="sourceLineNo">043</span> * &lt;/p&gt;<a name="line.43"></a>
+<span class="sourceLineNo">044</span> *<a name="line.44"></a>
+<span class="sourceLineNo">045</span> * @since 2.0<a name="line.45"></a>
+<span class="sourceLineNo">046</span> * @param &lt;T&gt; the type of the result of all set methods for method chaining<a name="line.46"></a>
+<span class="sourceLineNo">047</span> */<a name="line.47"></a>
+<span class="sourceLineNo">048</span>public interface BasicBuilderProperties&lt;T&gt; {<a name="line.48"></a>
+<span class="sourceLineNo">049</span>    /**<a name="line.49"></a>
+<span class="sourceLineNo">050</span>     * Sets the &lt;em&gt;logger&lt;/em&gt; property. With this property a concrete {@code ConfigurationLogger} object can be set for<a name="line.50"></a>
+<span class="sourceLineNo">051</span>     * the configuration. Thus logging behavior can be controlled.<a name="line.51"></a>
+<span class="sourceLineNo">052</span>     *<a name="line.52"></a>
+<span class="sourceLineNo">053</span>     * @param log the {@code Log} for the configuration produced by this builder<a name="line.53"></a>
+<span class="sourceLineNo">054</span>     * @return a reference to this object for method chaining<a name="line.54"></a>
+<span class="sourceLineNo">055</span>     */<a name="line.55"></a>
+<span class="sourceLineNo">056</span>    T setLogger(ConfigurationLogger log);<a name="line.56"></a>
+<span class="sourceLineNo">057</span><a name="line.57"></a>
+<span class="sourceLineNo">058</span>    /**<a name="line.58"></a>
+<span class="sourceLineNo">059</span>     * Sets the value of the &lt;em&gt;throwExceptionOnMissing&lt;/em&gt; property. This property controls the configuration's behavior<a name="line.59"></a>
+<span class="sourceLineNo">060</span>     * if missing properties are queried: a value of &lt;b&gt;true&lt;/b&gt; causes the configuration to throw an exception, for a value<a name="line.60"></a>
+<span class="sourceLineNo">061</span>     * of &lt;b&gt;false&lt;/b&gt; it will return &lt;b&gt;null&lt;/b&gt; values. (Note: Methods returning a primitive data type will always throw<a name="line.61"></a>
+<span class="sourceLineNo">062</span>     * an exception if the property is not defined.)<a name="line.62"></a>
+<span class="sourceLineNo">063</span>     *<a name="line.63"></a>
+<span class="sourceLineNo">064</span>     * @param b the value of the property<a name="line.64"></a>
+<span class="sourceLineNo">065</span>     * @return a reference to this object for method chaining<a name="line.65"></a>
+<span class="sourceLineNo">066</span>     */<a name="line.66"></a>
+<span class="sourceLineNo">067</span>    T setThrowExceptionOnMissing(boolean b);<a name="line.67"></a>
+<span class="sourceLineNo">068</span><a name="line.68"></a>
+<span class="sourceLineNo">069</span>    /**<a name="line.69"></a>
+<span class="sourceLineNo">070</span>     * Sets the value of the &lt;em&gt;listDelimiterHandler&lt;/em&gt; property. This property defines the object responsible for<a name="line.70"></a>
+<span class="sourceLineNo">071</span>     * dealing with list delimiter and escaping characters. Note:<a name="line.71"></a>
+<span class="sourceLineNo">072</span>     * {@link org.apache.commons.configuration2.AbstractConfiguration AbstractConfiguration} does not allow setting this<a name="line.72"></a>
+<span class="sourceLineNo">073</span>     * property to &lt;b&gt;null&lt;/b&gt;. If the default {@code ListDelimiterHandler} is to be used, do not call this method.<a name="line.73"></a>
+<span class="sourceLineNo">074</span>     *<a name="line.74"></a>
+<span class="sourceLineNo">075</span>     * @param handler the {@code ListDelimiterHandler}<a name="line.75"></a>
+<span class="sourceLineNo">076</span>     * @return a reference to this object for method chaining<a name="line.76"></a>
+<span class="sourceLineNo">077</span>     */<a name="line.77"></a>
+<span class="sourceLineNo">078</span>    T setListDelimiterHandler(ListDelimiterHandler handler);<a name="line.78"></a>
+<span class="sourceLineNo">079</span><a name="line.79"></a>
+<span class="sourceLineNo">080</span>    /**<a name="line.80"></a>
+<span class="sourceLineNo">081</span>     * Sets the {@code ConfigurationInterpolator} to be used for this configuration. Using this method a custom<a name="line.81"></a>
+<span class="sourceLineNo">082</span>     * {@code ConfigurationInterpolator} can be set which can be freely configured. Alternatively, it is possible to add<a name="line.82"></a>
+<span class="sourceLineNo">083</span>     * custom {@code Lookup} objects using other methods provided by this interface.<a name="line.83"></a>
+<span class="sourceLineNo">084</span>     *<a name="line.84"></a>
+<span class="sourceLineNo">085</span>     * @param ci the {@code ConfigurationInterpolator} for this configuration<a name="line.85"></a>
+<span class="sourceLineNo">086</span>     * @return a reference to this object for method chaining<a name="line.86"></a>
+<span class="sourceLineNo">087</span>     */<a name="line.87"></a>
+<span class="sourceLineNo">088</span>    T setInterpolator(ConfigurationInterpolator ci);<a name="line.88"></a>
+<span class="sourceLineNo">089</span><a name="line.89"></a>
+<span class="sourceLineNo">090</span>    /**<a name="line.90"></a>
+<span class="sourceLineNo">091</span>     * Sets additional {@code Lookup} objects for specific prefixes for this configuration object. All {@code Lookup}<a name="line.91"></a>
+<span class="sourceLineNo">092</span>     * objects contained in the given map are added to the configuration's {@code ConfigurationInterpolator}. Note: This<a name="line.92"></a>
+<span class="sourceLineNo">093</span>     * method only takes effect if no {@code ConfigurationInterpolator} is set using the<a name="line.93"></a>
+<span class="sourceLineNo">094</span>     * {@link #setInterpolator(ConfigurationInterpolator)} method.<a name="line.94"></a>
+<span class="sourceLineNo">095</span>     *<a name="line.95"></a>
+<span class="sourceLineNo">096</span>     * @param lookups a map with {@code Lookup} objects and their associated prefixes<a name="line.96"></a>
+<span class="sourceLineNo">097</span>     * @return a reference to this object for method chaining<a name="line.97"></a>
+<span class="sourceLineNo">098</span>     * @see ConfigurationInterpolator#registerLookups(Map)<a name="line.98"></a>
+<span class="sourceLineNo">099</span>     */<a name="line.99"></a>
+<span class="sourceLineNo">100</span>    T setPrefixLookups(Map&lt;String, ? extends Lookup&gt; lookups);<a name="line.100"></a>
+<span class="sourceLineNo">101</span><a name="line.101"></a>
+<span class="sourceLineNo">102</span>    /**<a name="line.102"></a>
+<span class="sourceLineNo">103</span>     * Adds additional default {@code Lookup} objects (i.e. lookups which are not associated with a specific prefix) to this<a name="line.103"></a>
+<span class="sourceLineNo">104</span>     * configuration object. Note: This method only takes effect if no {@code ConfigurationInterpolator} is set using the<a name="line.104"></a>
+<span class="sourceLineNo">105</span>     * {@link #setInterpolator(ConfigurationInterpolator)} method.<a name="line.105"></a>
+<span class="sourceLineNo">106</span>     *<a name="line.106"></a>
+<span class="sourceLineNo">107</span>     * @param lookups a collection with {@code Lookup} objects to be added as default lookups at the configuration's<a name="line.107"></a>
+<span class="sourceLineNo">108</span>     *        {@code ConfigurationInterpolator}<a name="line.108"></a>
+<span class="sourceLineNo">109</span>     * @return a reference to this object for method chaining<a name="line.109"></a>
+<span class="sourceLineNo">110</span>     * @see ConfigurationInterpolator#addDefaultLookups(Collection)<a name="line.110"></a>
+<span class="sourceLineNo">111</span>     */<a name="line.111"></a>
+<span class="sourceLineNo">112</span>    T setDefaultLookups(Collection&lt;? extends Lookup&gt; lookups);<a name="line.112"></a>
+<span class="sourceLineNo">113</span><a name="line.113"></a>
+<span class="sourceLineNo">114</span>    /**<a name="line.114"></a>
+<span class="sourceLineNo">115</span>     * Sets the parent {@code ConfigurationInterpolator} for this configuration's {@code ConfigurationInterpolator}. Setting<a name="line.115"></a>
+<span class="sourceLineNo">116</span>     * a parent {@code ConfigurationInterpolator} can be used for defining a default behavior for variables which cannot be<a name="line.116"></a>
+<span class="sourceLineNo">117</span>     * resolved.<a name="line.117"></a>
+<span class="sourceLineNo">118</span>     *<a name="line.118"></a>
+<span class="sourceLineNo">119</span>     * @param parent the new parent {@code ConfigurationInterpolator}<a name="line.119"></a>
+<span class="sourceLineNo">120</span>     * @return a reference to this object for method chaining<a name="line.120"></a>
+<span class="sourceLineNo">121</span>     * @see ConfigurationInterpolator#setParentInterpolator(ConfigurationInterpolator)<a name="line.121"></a>
+<span class="sourceLineNo">122</span>     */<a name="line.122"></a>
+<span class="sourceLineNo">123</span>    T setParentInterpolator(ConfigurationInterpolator parent);<a name="line.123"></a>
+<span class="sourceLineNo">124</span><a name="line.124"></a>
+<span class="sourceLineNo">125</span>    /**<a name="line.125"></a>
+<span class="sourceLineNo">126</span>     * Sets the {@code Synchronizer} object for this configuration. This object is used to protect this configuration<a name="line.126"></a>
+<span class="sourceLineNo">127</span>     * instance against concurrent access. The concrete {@code Synchronizer} implementation used determines whether a<a name="line.127"></a>
+<span class="sourceLineNo">128</span>     * configuration instance is thread-safe or not.<a name="line.128"></a>
+<span class="sourceLineNo">129</span>     *<a name="line.129"></a>
+<span class="sourceLineNo">130</span>     * @param sync the {@code Synchronizer} to be used (a value of &lt;b&gt;null&lt;/b&gt; means that a default {@code Synchronizer} is<a name="line.130"></a>
+<span class="sourceLineNo">131</span>     *        used)<a name="line.131"></a>
+<span class="sourceLineNo">132</span>     * @return a reference to this object for method chaining<a name="line.132"></a>
+<span class="sourceLineNo">133</span>     */<a name="line.133"></a>
+<span class="sourceLineNo">134</span>    T setSynchronizer(Synchronizer sync);<a name="line.134"></a>
+<span class="sourceLineNo">135</span><a name="line.135"></a>
+<span class="sourceLineNo">136</span>    /**<a name="line.136"></a>
+<span class="sourceLineNo">137</span>     * Sets the {@code ConversionHandler} object for this configuration. This object is responsible for all data type<a name="line.137"></a>
+<span class="sourceLineNo">138</span>     * conversions required for accessing configuration properties in a specific target type. If this property is not set, a<a name="line.138"></a>
+<span class="sourceLineNo">139</span>     * default {@code ConversionHandler} is used.<a name="line.139"></a>
+<span class="sourceLineNo">140</span>     *<a name="line.140"></a>
+<span class="sourceLineNo">141</span>     * @param handler the {@code ConversionHandler} to be used<a name="line.141"></a>
+<span class="sourceLineNo">142</span>     * @return a reference to this object for method chaining<a name="line.142"></a>
+<span class="sourceLineNo">143</span>     */<a name="line.143"></a>
+<span class="sourceLineNo">144</span>    T setConversionHandler(ConversionHandler handler);<a name="line.144"></a>
+<span class="sourceLineNo">145</span><a name="line.145"></a>
+<span class="sourceLineNo">146</span>    /**<a name="line.146"></a>
+<span class="sourceLineNo">147</span>     * Sets the {@code ConfigurationDecoder} object for this configuration. This object is called when encoded properties<a name="line.147"></a>
+<span class="sourceLineNo">148</span>     * are queried using the {@code getEncodedString()} method.<a name="line.148"></a>
+<span class="sourceLineNo">149</span>     *<a name="line.149"></a>
+<span class="sourceLineNo">150</span>     * @param decoder the {@code ConfigurationDecoder} to be used<a name="line.150"></a>
+<span class="sourceLineNo">151</span>     * @return a reference to this object for method chaining<a name="line.151"></a>
+<span class="sourceLineNo">152</span>     */<a name="line.152"></a>
+<span class="sourceLineNo">153</span>    T setConfigurationDecoder(ConfigurationDecoder decoder);<a name="line.153"></a>
+<span class="sourceLineNo">154</span><a name="line.154"></a>
+<span class="sourceLineNo">155</span>    /**<a name="line.155"></a>
+<span class="sourceLineNo">156</span>     * Sets a {@code BeanHelper} object to be used by the configuration builder. The {@code BeanHelper} is used to create<a name="line.156"></a>
+<span class="sourceLineNo">157</span>     * the managed configuration instance dynamically. It is not a property of the configuration as most other properties<a name="line.157"></a>
+<span class="sourceLineNo">158</span>     * defined by this interface. By setting an alternative {@code BeanHelper} the process of creating configuration<a name="line.158"></a>
+<span class="sourceLineNo">159</span>     * instances via reflection can be adapted. (Some specialized configuration builder implementations also use a<a name="line.159"></a>
+<span class="sourceLineNo">160</span>     * {@code BeanHelper} to create complex helper objects during construction of their result object.<a name="line.160"></a>
+<span class="sourceLineNo">161</span>     * {@code CombinedConfigurationBuilder} for instance supports a complex configuration definition format which may<a name="line.161"></a>
+<span class="sourceLineNo">162</span>     * contain several specialized bean declarations.) If no specific {@code BeanHelper} is set, the builder uses the<a name="line.162"></a>
+<span class="sourceLineNo">163</span>     * default instance.<a name="line.163"></a>
+<span class="sourceLineNo">164</span>     *<a name="line.164"></a>
+<span class="sourceLineNo">165</span>     * @param beanHelper the {@code BeanHelper} to be used by the builder<a name="line.165"></a>
+<span class="sourceLineNo">166</span>     * @return a reference to this object for method chaining<a name="line.166"></a>
+<span class="sourceLineNo">167</span>     */<a name="line.167"></a>
+<span class="sourceLineNo">168</span>    T setBeanHelper(BeanHelper beanHelper);<a name="line.168"></a>
+<span class="sourceLineNo">169</span>}<a name="line.169"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>
