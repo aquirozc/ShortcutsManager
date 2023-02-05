@@ -2,19 +2,24 @@ package com.aquirozc.shorcutsmanager.controller;
 
 import com.aquirozc.shorcutsmanager.userinterface.HomeMenu;
 import com.aquirozc.shorcutsmanager.userinterface.ScrollableAppGrid;
+import com.aquirozc.shorcutsmanager.util.Linker;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 public class Controller implements ActionListener {
 
     public static String ZOOM_IN = "Zoom In";
     public static String ZOOM_OUT = "Zoom Out";
+    public static String PICK_NEW_DIR = "Change working directory";
 
     private HomeMenu homeMenuPane;
     private JFrame homeMenuFrame;
+    private Linker linkManager;
     private ScrollableAppGrid appGallery;
 
     public Controller(){
@@ -41,7 +46,20 @@ public class Controller implements ActionListener {
 
         String action = e.getActionCommand();
 
-        if (action == ZOOM_IN){
+        if(action == PICK_NEW_DIR){
+
+            System.setProperty("apple.awt.fileDialogForDirectories", "true");
+            FileDialog filePicker = new FileDialog(homeMenuFrame);
+            filePicker.setVisible(true);
+
+            String fullPath = filePicker.getDirectory() + filePicker.getFile();
+
+            homeMenuPane.setCurrentDirLabel(filePicker.getFile());
+            homeMenuPane.setCurrentDirPath(fullPath);
+            linkManager = new Linker(new File(fullPath));
+
+
+        }else if (action == ZOOM_IN){
 
             int nextLevel = appGallery.getCurrentZoomLevel() + 1;
 
@@ -54,6 +72,7 @@ public class Controller implements ActionListener {
         } else if (action == ZOOM_OUT) {
 
             int nextLevel = appGallery.getCurrentZoomLevel() - 1;
+
             if(nextLevel == 0){
                 homeMenuPane.updateZoomOutButtonStatus(false);
             }

@@ -1,5 +1,7 @@
 package com.aquirozc.shorcutsmanager.userinterface;
 
+import com.aquirozc.shorcutsmanager.util.Application;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -7,6 +9,7 @@ import java.awt.event.ActionListener;
 public class ScrollableAppGrid extends JScrollPane {
 
     private ActionListener buttonListener;
+    private Application[] applicationIndex;
     private int currentZoomLevel;
     private int [][] measures;
     private int totalItems;
@@ -18,7 +21,13 @@ public class ScrollableAppGrid extends JScrollPane {
     public ScrollableAppGrid(ActionListener listener){
 
         buttonListener = listener;
-        totalItems = 64;
+
+    }
+
+    public void generateGrid(Application [] index){
+
+        applicationIndex = index;
+        totalItems = index.length;
         currentZoomLevel = 2;
 
         populateMeasures();
@@ -71,7 +80,7 @@ public class ScrollableAppGrid extends JScrollPane {
 
             for (int i = 0; i < totalItems; i++){
 
-                applicationItem[i] = new JButton("Item #" + (i+1));
+                applicationItem[i] = new JButton(applicationIndex[i].getIconAt(i));
                 applicationItem[i].setPreferredSize(new Dimension(individualItemSize,individualItemSize));
                 applicationItem[i].setBorderPainted(false);
                 applicationItem[i].setFocusPainted(false);

@@ -56,13 +56,15 @@ public class HomeMenu extends JPanel {
 
         currentDirHeader = new JLabel("Working directory");
         currentDirHeader.setFont(DesignPallete.FONT_HEADER_A);
-        currentDirLabel = new JLabel("MyApps");
+        currentDirLabel = new JLabel();
         currentDirLabel.setFont(DesignPallete.FONT_HEADER_B);
-        currentDirPath = new JLabel("File:///Volumes/Elements/MyApps");
+        currentDirPath = new JLabel();
         currentDirPath.setFont(DesignPallete.FONT_PATH_A);
         currentDirUpdateButton = new JButton("Change");
         currentDirUpdateButton.setFont(DesignPallete.FONT_BUTTON_B);
         currentDirUpdateButton.setPreferredSize(new Dimension(75,35));
+        currentDirUpdateButton.setActionCommand(Controller.PICK_NEW_DIR);
+        currentDirUpdateButton.addActionListener(listener);
 
         currentDirIcon = new JLabel();
         currentDirIcon.setPreferredSize(new Dimension(75,75));
@@ -81,7 +83,7 @@ public class HomeMenu extends JPanel {
 
         appList = appGallery;
         appList.setPreferredSize(new Dimension(606,303));
-        appList.setViewContextBackground(new Color(222,222,222));
+
 
         selectAll = new JButton("Select all");
         selectAll.setPreferredSize(new Dimension(75,35));
@@ -247,6 +249,14 @@ public class HomeMenu extends JPanel {
         layoutConstraints.weighty = 0;
         layoutConstraints.weightx = 0;
 
+    }
+
+    public void setCurrentDirLabel(String name){
+        currentDirLabel.setText(name);
+    }
+
+    public void setCurrentDirPath(String path){
+        currentDirPath.setText("File://" + path);
     }
 
     public void updateZoomInButtonStatus(boolean value){
