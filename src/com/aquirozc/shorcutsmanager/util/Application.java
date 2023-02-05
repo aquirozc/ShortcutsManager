@@ -91,7 +91,9 @@ public class Application {
                 for(BufferedImage image : bufferedImageList){
 
                     if(image.getHeight() >= maxRes.getHeight()){
-                        maxRes = image;
+                        if(!isBlank(image)){
+                            maxRes = image;
+                        }
                     }
 
                 }
@@ -108,6 +110,20 @@ public class Application {
         }
 
         return  iconPack;
+    }
+
+    public Boolean isBlank(BufferedImage bufferedImage){
+        boolean isBlank = true;
+        for (int i = 0; i < bufferedImage.getWidth() ;i++){
+
+            for (int j = 0; j < bufferedImage.getHeight() ;j++){
+                if (bufferedImage.getRGB(i,j) != 0){
+                    isBlank = false;
+                    break;
+                }
+            }
+        }
+        return isBlank;
     }
 
     public static BufferedImage resize(BufferedImage img, int newW, int newH) {

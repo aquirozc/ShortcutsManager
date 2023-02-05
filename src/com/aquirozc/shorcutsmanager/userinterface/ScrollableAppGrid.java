@@ -27,8 +27,8 @@ public class ScrollableAppGrid extends JScrollPane {
     public void generateGrid(Application [] index){
 
         applicationIndex = index;
-        totalItems = index.length;
-        currentZoomLevel = 4;
+        totalItems = applicationIndex.length;
+        currentZoomLevel = 0;
 
         populateMeasures();
         populateViewContex();
@@ -40,7 +40,7 @@ public class ScrollableAppGrid extends JScrollPane {
         this.setViewportView(topLevelContainer);
         this.setBorder(BorderFactory.createLineBorder(new Color(200,200,200),1));
 
-        topLevelContainer.setBackground(new Color(212,212,212));
+        setViewContextBackground(new Color(212,212,212));
 
     }
 
@@ -58,9 +58,9 @@ public class ScrollableAppGrid extends JScrollPane {
 
         //Gap size
 
-        measures [1][0] = 6;
-        measures [1][1] = 8;
-        measures [1][2] = 10;
+        measures [1][0] = 8;
+        measures [1][1] = 10;
+        measures [1][2] = 12;
         measures [1][3] = 14;
         measures [1][4] = 18;
 
@@ -116,7 +116,7 @@ public class ScrollableAppGrid extends JScrollPane {
 
         currentZoomLevel = nextLevel;
 
-        viewContextLayout = new GridLayout(Math.ceilDiv(totalItems, 7- currentZoomLevel),7-currentZoomLevel);
+        viewContextLayout = new GridLayout(Math.ceilDiv(totalItems, 7- currentZoomLevel),7 - currentZoomLevel);
         viewContextLayout.setHgap(measures[1][currentZoomLevel]);
         viewContextLayout.setVgap(measures[1][currentZoomLevel]);
 
@@ -133,6 +133,7 @@ public class ScrollableAppGrid extends JScrollPane {
         }
         topLevelContainer.add(viewContext);
         setViewportView(topLevelContainer);
+        System.out.println(7-currentZoomLevel);
 
     }
 

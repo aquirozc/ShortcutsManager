@@ -3,9 +3,7 @@ package com.aquirozc.shorcutsmanager.userinterface;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
-import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
