@@ -28,13 +28,14 @@ public class ScrollableAppGrid extends JScrollPane {
 
         applicationIndex = index;
         totalItems = index.length;
-        currentZoomLevel = 2;
+        currentZoomLevel = 4;
 
         populateMeasures();
         populateViewContex();
 
         topLevelContainer = new JPanel();
-        topLevelContainer.add(viewContext,BorderLayout.CENTER);
+        topLevelContainer.setLayout(new GridBagLayout());
+        topLevelContainer.add(viewContext);
 
         this.setViewportView(topLevelContainer);
         this.setBorder(BorderFactory.createLineBorder(new Color(200,200,200),1));
@@ -57,10 +58,10 @@ public class ScrollableAppGrid extends JScrollPane {
 
         //Gap size
 
-        measures [1][0] = 3;
-        measures [1][1] = 6;
-        measures [1][2] = 9;
-        measures [1][3] = 12;
+        measures [1][0] = 6;
+        measures [1][1] = 8;
+        measures [1][2] = 10;
+        measures [1][3] = 14;
         measures [1][4] = 18;
 
     }
@@ -80,7 +81,7 @@ public class ScrollableAppGrid extends JScrollPane {
 
             for (int i = 0; i < totalItems; i++){
 
-                applicationItem[i] = new JButton(applicationIndex[i].getIconAt(i));
+                applicationItem[i] = new JButton(applicationIndex[i].getIconAt(currentZoomLevel));
                 applicationItem[i].setPreferredSize(new Dimension(individualItemSize,individualItemSize));
                 applicationItem[i].setBorderPainted(false);
                 applicationItem[i].setFocusPainted(false);
@@ -127,9 +128,10 @@ public class ScrollableAppGrid extends JScrollPane {
         for (int i = 0; i < totalItems; i++){
 
             applicationItem[i].setPreferredSize(new Dimension(individualItemSize,individualItemSize));
+            applicationItem[i].setIcon(applicationIndex[i].getIconAt(nextLevel));
             viewContext.add(applicationItem[i]);
         }
-        topLevelContainer.add(viewContext,BorderLayout.CENTER);
+        topLevelContainer.add(viewContext);
         setViewportView(topLevelContainer);
 
     }

@@ -58,6 +58,8 @@ public class Controller implements ActionListener {
             homeMenuPane.setCurrentDirPath(fullPath);
             linkManager = new Linker(new File(fullPath));
 
+            appGallery.generateGrid(linkManager.getApplicationIndex());
+
 
         }else if (action == ZOOM_IN){
 

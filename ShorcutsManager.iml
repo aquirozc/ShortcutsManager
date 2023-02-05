@@ -16,5 +16,6 @@
     <orderEntry type="library" name="commons-lang3" level="project" />
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
     <orderEntry type="library" name="DoctypeChanger" level="project" />
+    <orderEntry type="library" name="commons-imaging-1.0-alpha3" level="project" />
   </component>
 </module>

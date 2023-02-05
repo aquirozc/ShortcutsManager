@@ -2,12 +2,15 @@ package com.aquirozc.shorcutsmanager.util;
 
 import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.commons.configuration2.plist.XMLPropertyListConfiguration;
+import org.apache.commons.imaging.ImageReadException;
+import org.apache.commons.imaging.formats.icns.IcnsImageParser;
+import org.apache.commons.imaging.formats.icns.IcnsImagingParameters;
 
 import javax.swing.ImageIcon;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import java.util.List;
 
 
 public class Application {
@@ -25,10 +28,11 @@ public class Application {
         filePath = applicationPackage.getAbsolutePath();
         applicationIcon = new ImageIcon[5];
         linkPolicy = false;
-        findIconBundle();
+        applicationIcon = generateApplicationIcon(findIconBundle());
+
     }
 
-    @SuppressWarnings("unchecked")
+
     private File findIconBundle() {
 
         File iconBundle = null;
@@ -50,7 +54,7 @@ public class Application {
                 
             }else {
 
-                File resourcesFolder = new File(applicationPackage, "Contents/Resources");
+                File resourcesFolder = new File(applicationPackage, "Contents/Resources/");
                 File [] innerChilds = resourcesFolder.listFiles();
                 
                 for(File file : innerChilds){
@@ -63,12 +67,58 @@ public class Application {
                 }
             }
 
-            System.out.println(applicationPackage.getName() + " : " + iconBundle.getName());
 
         } catch (ConfigurationException | FileNotFoundException | NullPointerException e) {
 
         }
-        return null;
+
+        return iconBundle;
+    }
+
+    public ImageIcon[] generateApplicationIcon(File file){
+
+        File bundle = file;
+        IcnsImageParser icnsParser = new IcnsImageParser();
+        IcnsImagingParameters icnsParams = icnsParser.getDefaultParameters();
+        BufferedImage maxRes = new BufferedImage(1,1,BufferedImage.TYPE_4BYTE_ABGR);
+        ImageIcon [] iconPack = new ImageIcon[5];
+
+        try{
+
+            icnsParams.setBufferedImageFactory(new BufferedIcnsImageFactory());
+            List <BufferedImage> bufferedImageList= icnsParser.getAllBufferedImages(bundle);
+
+                for(BufferedImage image : bufferedImageList){
+
+                    if(image.getHeight() >= maxRes.getHeight()){
+                        maxRes = image;
+                    }
+
+                }
+
+
+            iconPack[0] = new ImageIcon(resize(maxRes,64,64));
+            iconPack[1] = new ImageIcon(resize(maxRes,72,72));
+            iconPack[2] = new ImageIcon(resize(maxRes,88,88));
+            iconPack[3] = new ImageIcon(resize(maxRes,111,111));
+            iconPack[4] = new ImageIcon(resize(maxRes,135,135));
+
+        }catch (ImageReadException | IOException |NullPointerException e){
+
+        }
+
+        return  iconPack;
+    }
+
+    public static BufferedImage resize(BufferedImage img, int newW, int newH) {
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
     }
 
     public ImageIcon getIconAt(int i){

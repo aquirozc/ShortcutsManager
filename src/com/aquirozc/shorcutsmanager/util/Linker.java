@@ -1,7 +1,6 @@
 package com.aquirozc.shorcutsmanager.util;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -38,12 +37,17 @@ public class Linker {
     }
 
     public Application[] getApplicationIndex(){
-        return (Application[]) applicationIndex.toArray();
+        int listSize = applicationIndex.size();
+        Application[] appIndex = new Application[listSize];
+        for (int i = 0; i < listSize;i++){
+            appIndex[i] = applicationIndex.get(i);
+        }
+        return appIndex;
     }
 
     public void clearSelection (){
         willShorcutBeCreated = new boolean[applicationIndex.size()];
-        for (int i = 0; i <willShorcutBeCreated.length ; i++) {
+        for (int i = 0; i < willShorcutBeCreated.length ; i++) {
             willShorcutBeCreated[i] = false;
         }
     }
