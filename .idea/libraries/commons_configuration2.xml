@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-configuration2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/Apache Commons Configuration/commons-configuration2-2.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
