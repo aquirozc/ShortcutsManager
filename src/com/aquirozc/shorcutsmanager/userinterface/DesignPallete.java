@@ -14,7 +14,7 @@ public class DesignPallete {
     public static final Color COLOR_DARK_COMPONENT_BACKGROUND_A = new Color(32, 32, 32);
     public static final Color COLOR_DARK_COMPONENT_BACKGROUND_B = new Color(55, 55, 55);
     public static final Color COLOR_DARK_COMPONENT_BACKGROUND_C = new Color(127, 127, 127);
-    public static final Color COLOR_ARK_BUTTON_BACKGROUND_A = new Color(55, 55, 55);
+    public static final Color COLOR_DARK_BUTTON_BACKGROUND_A = new Color(55, 55, 55);
     public static final Color COLOR_DARK_BUTTON_BACKGROUND_B = new Color(32, 32, 32);
     public static final Color COLOR_DARK_TEXT_FOREGROUND_A = new Color(255,255,255);
 
