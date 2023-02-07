@@ -2,6 +2,7 @@ package com.aquirozc.shorcutsmanager.controller;
 
 import com.aquirozc.shorcutsmanager.userinterface.HomeMenu;
 import com.aquirozc.shorcutsmanager.userinterface.ScrollableAppGrid;
+import com.aquirozc.shorcutsmanager.util.Application;
 import com.aquirozc.shorcutsmanager.util.Linker;
 
 import javax.swing.*;
@@ -17,6 +18,7 @@ public class Controller implements ActionListener {
     public static String ZOOM_OUT = "Zoom Out";
     public static String PICK_NEW_DIR = "Change working directory";
 
+    private Application[] applicationIndex;
     private HomeMenu homeMenuPane;
     private JFrame homeMenuFrame;
     private Linker linkManager;
@@ -58,7 +60,8 @@ public class Controller implements ActionListener {
             homeMenuPane.setCurrentDirPath(fullPath);
             linkManager = new Linker(new File(fullPath));
 
-            appGallery.generateGrid(linkManager.getApplicationIndex());
+            applicationIndex = linkManager.getApplicationIndex();
+            appGallery.generateGrid(applicationIndex);
 
 
         }else if (action == ZOOM_IN){
@@ -81,10 +84,13 @@ public class Controller implements ActionListener {
             homeMenuPane.updateZoomInButtonStatus(true);
             appGallery.updateZoomLevel(nextLevel);
 
-        } else if (action == "ITEM") {
+        } else if (action.startsWith("ITEM")) {
 
+            int id = Integer.parseInt(action.substring(7));
             JButton pressedButton = ((JButton) e.getSource());
-            pressedButton.setBackground(Color.GREEN);
+            Color bgColor = applicationIndex[id].getLinkPolicy() ? new Color(96,96,96) : new Color(124,201,231);
+            pressedButton.setBackground(bgColor);
+            applicationIndex[id].updateLinkPolicy();
 
         }
 

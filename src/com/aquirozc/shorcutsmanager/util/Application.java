@@ -145,7 +145,9 @@ public class Application {
         return linkPolicy;
     }
 
-    public void setLinkPolicy(Boolean val){
-        linkPolicy = val;
+    public void updateLinkPolicy(){
+
+        linkPolicy = !linkPolicy;
+
     }
 }

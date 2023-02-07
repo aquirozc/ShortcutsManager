@@ -50,6 +50,8 @@ public class ScrollableAppGrid extends JScrollPane {
         applicationIndex = index;
         totalItems = applicationIndex.length;
 
+        resetViewPortContent();
+        applicationItem = new JButton[totalItems];
 
         for (int i = 0; i < totalItems; i++){
 
@@ -60,10 +62,11 @@ public class ScrollableAppGrid extends JScrollPane {
             applicationItem[i].setBorder(BorderFactory.createEmptyBorder());
             applicationItem[i].setOpaque(true);
             applicationItem[i].setBackground(new Color(96,96,96));
-            applicationItem[i].setActionCommand("ITEM");
+            applicationItem[i].setActionCommand("ITEM_id" + i);
             applicationItem[i].addActionListener(buttonListener);
 
             viewportContent.add(applicationItem[i]);
+
         }
 
         refreshPage();
@@ -84,7 +87,6 @@ public class ScrollableAppGrid extends JScrollPane {
 
         individualItemSize = cellDimensions[currentZoomLevel];
 
-        applicationItem = new JButton[totalItems];
 
     }
 
@@ -95,6 +97,8 @@ public class ScrollableAppGrid extends JScrollPane {
         viewportTopLayout.add(viewportContent);
 
         this.setViewportView(viewportTopLayout);
+        viewportContent.setBackground(new Color(212,212,212));
+        viewportTopLayout.setBackground(new Color(212,212,212));
 
     }
 
