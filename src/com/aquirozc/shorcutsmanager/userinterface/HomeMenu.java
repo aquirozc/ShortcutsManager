@@ -48,6 +48,8 @@ public class HomeMenu extends JPanel {
         createShorcuts.setFont(DesignPallete.FONT_BUTTON_A);
         createShorcuts.setPreferredSize(new Dimension(250,40));
         createShorcuts.setEnabled(false);
+        createShorcuts.setActionCommand(Controller.CREATE_SHOCUTS);
+        createShorcuts.addActionListener(listener);
 
         deleteShorcuts = new JButton("Delete shorcuts for selected");
         deleteShorcuts.setFont(DesignPallete.FONT_BUTTON_A);

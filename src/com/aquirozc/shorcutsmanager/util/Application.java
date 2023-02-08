@@ -145,6 +145,10 @@ public class Application {
         linkPolicy = val;
     }
 
+    public String getFilePath(){
+        return filePath;
+    }
+
     public boolean getLinkPolicy(){
         return linkPolicy;
     }

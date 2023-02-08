@@ -19,6 +19,7 @@ public class Controller implements ActionListener {
     public static String PICK_NEW_DIR = "Change working directory";
     public static String CLEAR_SELECTION = "Clear selection";
     public static String SELECT_ALL = "Select all";
+    public static String CREATE_SHOCUTS = "Create shorcuts for selected items";
 
     private Application[] applicationIndex;
     private int noSelectedItems;
@@ -125,6 +126,18 @@ public class Controller implements ActionListener {
             updateButtons();
 
         } else if (action == CLEAR_SELECTION){
+            for (JButton button : appGallery.getApplicationItem()) {
+                button.setBackground(new Color(96,96,96));
+                applicationIndex[Integer.parseInt(button.getActionCommand().substring(7))].setLinkPolicy(false);
+            }
+            noSelectedItems = 0;
+            updateButtons();
+        } else if (action == CREATE_SHOCUTS) {
+
+            for (Application application : applicationIndex){
+                linkManager.createShorcut(application);
+            }
+
             for (JButton button : appGallery.getApplicationItem()) {
                 button.setBackground(new Color(96,96,96));
                 applicationIndex[Integer.parseInt(button.getActionCommand().substring(7))].setLinkPolicy(false);
