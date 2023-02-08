@@ -47,10 +47,12 @@ public class HomeMenu extends JPanel {
         createShorcuts = new JButton("Create shorcuts for selected");
         createShorcuts.setFont(DesignPallete.FONT_BUTTON_A);
         createShorcuts.setPreferredSize(new Dimension(250,40));
+        createShorcuts.setEnabled(false);
 
         deleteShorcuts = new JButton("Delete shorcuts for selected");
         deleteShorcuts.setFont(DesignPallete.FONT_BUTTON_A);
         deleteShorcuts.setPreferredSize(new Dimension(250,40));
+        deleteShorcuts.setEnabled(false);
         
         sidebarBackground = new JLabel();
 
@@ -88,10 +90,14 @@ public class HomeMenu extends JPanel {
         selectAll = new JButton("Select all");
         selectAll.setPreferredSize(new Dimension(75,35));
         selectAll.setFont(DesignPallete.FONT_BUTTON_B);
+        selectAll.setActionCommand(Controller.SELECT_ALL);
+        selectAll.addActionListener(listener);
 
         clearSelection = new JButton("Clear");
         clearSelection.setPreferredSize(new Dimension(75,35));
         clearSelection.setFont(DesignPallete.FONT_BUTTON_B);
+        clearSelection.setActionCommand(Controller.CLEAR_SELECTION);
+        clearSelection.addActionListener(listener);
 
         layoutConstraints.anchor = GridBagConstraints.LINE_START;
 
@@ -249,6 +255,11 @@ public class HomeMenu extends JPanel {
         layoutConstraints.weighty = 0;
         layoutConstraints.weightx = 0;
 
+    }
+
+    public void setButtonsEnabled(boolean val){
+        createShorcuts.setEnabled(val);
+        deleteShorcuts.setEnabled(val);
     }
 
     public void setCurrentDirLabel(String name){

@@ -17,17 +17,22 @@ public class Controller implements ActionListener {
     public static String ZOOM_IN = "Zoom In";
     public static String ZOOM_OUT = "Zoom Out";
     public static String PICK_NEW_DIR = "Change working directory";
+    public static String CLEAR_SELECTION = "Clear selection";
+    public static String SELECT_ALL = "Select all";
 
     private Application[] applicationIndex;
+    private int noSelectedItems;
     private HomeMenu homeMenuPane;
     private JFrame homeMenuFrame;
     private Linker linkManager;
     private ScrollableAppGrid appGallery;
 
+
     public Controller(){
 
         appGallery = new ScrollableAppGrid(this);
-        
+        noSelectedItems = 0;
+
         homeMenuPane = new HomeMenu(this,appGallery);
         homeMenuFrame = new JFrame("iShorcutsManager 2023 (Under developement)");
         
@@ -41,6 +46,14 @@ public class Controller implements ActionListener {
     
     public void onCreate(){
         homeMenuFrame.setVisible(true);
+    }
+
+    private void updateButtons(){
+        if (noSelectedItems != 0){
+            homeMenuPane.setButtonsEnabled(true);
+        }else {
+            homeMenuPane.setButtonsEnabled(false);
+        }
     }
 
     @Override
@@ -88,10 +101,36 @@ public class Controller implements ActionListener {
 
             int id = Integer.parseInt(action.substring(7));
             JButton pressedButton = ((JButton) e.getSource());
-            Color bgColor = applicationIndex[id].getLinkPolicy() ? new Color(96,96,96) : new Color(124,201,231);
+            Color bgColor;
+            if (applicationIndex[id].getLinkPolicy()){
+                bgColor =  new Color(96,96,96);
+                noSelectedItems--;
+                updateButtons();
+            }else{
+                bgColor = new Color(124,201,231);
+                noSelectedItems++;
+                updateButtons();
+            }
+
             pressedButton.setBackground(bgColor);
             applicationIndex[id].updateLinkPolicy();
 
+        } else if (action == SELECT_ALL) {
+
+            for (JButton button : appGallery.getApplicationItem()) {
+                button.setBackground(new Color(124,201,231));
+                applicationIndex[Integer.parseInt(button.getActionCommand().substring(7))].setLinkPolicy(true);
+            }
+            noSelectedItems = applicationIndex.length;
+            updateButtons();
+
+        } else if (action == CLEAR_SELECTION){
+            for (JButton button : appGallery.getApplicationItem()) {
+                button.setBackground(new Color(96,96,96));
+                applicationIndex[Integer.parseInt(button.getActionCommand().substring(7))].setLinkPolicy(false);
+            }
+            noSelectedItems = 0;
+            updateButtons();
         }
 
     }

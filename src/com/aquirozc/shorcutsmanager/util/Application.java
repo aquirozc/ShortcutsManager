@@ -141,6 +141,10 @@ public class Application {
         return applicationIcon[i];
     }
 
+    public void setLinkPolicy(boolean val){
+        linkPolicy = val;
+    }
+
     public boolean getLinkPolicy(){
         return linkPolicy;
     }

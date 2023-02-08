@@ -127,4 +127,7 @@ public class ScrollableAppGrid extends JScrollPane {
 
     }
 
+    public JButton[] getApplicationItem(){
+        return applicationItem;
+    }
 }
