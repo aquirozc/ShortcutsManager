@@ -28,6 +28,11 @@ public class DesignPallete {
     public static final Font FONT_HEADER_A = BASE_FONT.deriveFont(26f);
     public static final Font FONT_HEADER_B = BASE_FONT.deriveFont(24f);
     public static final Font FONT_PATH_A = BASE_FONT.deriveFont(16f);
+
+    //Theme IDs
+
+    public static final String THEME_AQUA_DEFAULT = "Use Apple Aqua built-in theme";
+    public static final String THEME_METRO_DARK = "Use Metro-inspired dark theme";
     
 
     private static Font loadFont(){
@@ -37,7 +42,7 @@ public class DesignPallete {
             try{
                     baseFont = Font.createFont(Font.TRUETYPE_FONT, DesignPallete.class.getClassLoader().getResourceAsStream("Khula-Light.ttf"));
             }catch (FontFormatException| IOException fontError){
-                    Logger.getLogger("com.aquirozc.shorcutsmanager").log(Level.SEVERE,"Cannot load font resource");
+                    Logger.getLogger("com.aquirozc.shorcutsmanager").log(Level.SEVERE,"Couldn't load font resource");
             }
 
             return baseFont;

@@ -5,11 +5,12 @@ import com.aquirozc.shorcutsmanager.util.Application;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ScrollableAppGrid extends JScrollPane {
 
     private ActionListener buttonListener;
-    private Application[] applicationIndex;
+    private ArrayList <Application> applicationIndex;
     private int currentZoomLevel;
     private int[] cellDimensions;
     private int[] cellInsets;
@@ -18,7 +19,8 @@ public class ScrollableAppGrid extends JScrollPane {
     private GridLayout viewportContentLayout;
     private JButton[] applicationItem;
     private JPanel viewportContent;
-    private JPanel viewportTopLayout;
+    private JPanel viewportTopLayer;
+    private JPanel placeholder;
 
 
     public ScrollableAppGrid(ActionListener listener){
@@ -41,27 +43,36 @@ public class ScrollableAppGrid extends JScrollPane {
         cellInsets[3] = 14;
         cellInsets[4] = 18;
 
+        JLabel placeholderLabel = new JLabel("There is nothing to show :(");
+        placeholderLabel.setFont(DesignPallete.FONT_HEADER_B);
+        placeholder = new JPanel();
+        placeholder.setLayout(new GridBagLayout());
+        placeholder.setBackground(new Color(212,212,212));
+        placeholder.add(placeholderLabel);
+        showBlankPage();
+
+
     }
 
-    public void generateGrid(Application [] index){
+    public void generateGrid(ArrayList <Application> index){
 
         currentZoomLevel = 2;
 
         applicationIndex = index;
-        totalItems = applicationIndex.length;
+        totalItems = applicationIndex.size();
 
         resetViewPortContent();
         applicationItem = new JButton[totalItems];
 
-        for (int i = 0; i < totalItems; i++){
+        for (int i = 0; i < totalItems; i++) {
 
-            applicationItem[i] = new JButton(applicationIndex[i].getIconAt(currentZoomLevel));
-            applicationItem[i].setPreferredSize(new Dimension(individualItemSize,individualItemSize));
+            applicationItem[i] = new JButton(applicationIndex.get(i).getIconAt(currentZoomLevel));
+            applicationItem[i].setPreferredSize(new Dimension(individualItemSize, individualItemSize));
             applicationItem[i].setBorderPainted(false);
             applicationItem[i].setFocusPainted(false);
             applicationItem[i].setBorder(BorderFactory.createEmptyBorder());
             applicationItem[i].setOpaque(true);
-            applicationItem[i].setBackground(new Color(96,96,96));
+            applicationItem[i].setBackground(new Color(96, 96, 96));
             applicationItem[i].setActionCommand("ITEM_id" + i);
             applicationItem[i].addActionListener(buttonListener);
 
@@ -70,6 +81,8 @@ public class ScrollableAppGrid extends JScrollPane {
         }
 
         refreshPage();
+
+
 
     }
 
@@ -92,23 +105,20 @@ public class ScrollableAppGrid extends JScrollPane {
 
     private void refreshPage(){
 
-        viewportTopLayout = new JPanel();
-        viewportTopLayout.setLayout(new GridBagLayout());
-        viewportTopLayout.add(viewportContent);
+        viewportTopLayer = new JPanel();
+        viewportTopLayer.setLayout(new GridBagLayout());
+        viewportTopLayer.add(viewportContent);
 
-        this.setViewportView(viewportTopLayout);
+        this.setViewportView(viewportTopLayer);
         viewportContent.setBackground(new Color(212,212,212));
-        viewportTopLayout.setBackground(new Color(212,212,212));
+        viewportTopLayer.setBackground(new Color(212,212,212));
 
     }
 
-    public int getCurrentZoomLevel() {
-        return currentZoomLevel;
+    public void showBlankPage(){
+        setViewportView(placeholder);
     }
 
-    public int getTotalZoomLevels (){
-        return  cellDimensions.length;
-    }
 
     public void updateZoomLevel(int nextLevel){
 
@@ -119,7 +129,7 @@ public class ScrollableAppGrid extends JScrollPane {
         for (int i = 0; i < totalItems; i++){
 
             applicationItem[i].setPreferredSize(new Dimension(individualItemSize,individualItemSize));
-            applicationItem[i].setIcon(applicationIndex[i].getIconAt(nextLevel));
+            applicationItem[i].setIcon(applicationIndex.get(i).getIconAt(nextLevel));
             viewportContent.add(applicationItem[i]);
         }
 
@@ -127,7 +137,16 @@ public class ScrollableAppGrid extends JScrollPane {
 
     }
 
+    public int getCurrentZoomLevel() {
+        return currentZoomLevel;
+    }
+
+    public int getMaximumZoomLevel (){
+        return  cellDimensions.length - 1;
+    }
+
     public JButton[] getApplicationItem(){
         return applicationItem;
     }
+
 }
