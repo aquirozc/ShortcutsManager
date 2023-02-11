@@ -1,59 +1,41 @@
 package com.aquirozc.shorcutsmanager.util;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Linker {
 
-    private File workingDirectory;
-    private ArrayList<Application> applicationIndex;
-    private String linkTaget = "/Applications";
 
-    public Linker(File file){
-        workingDirectory = file;
-        applicationIndexer();
-    }
+    private String linkTaget = "/Applications/";
 
-    private void applicationIndexer(){
-
-        applicationIndex = new ArrayList<Application>();
-
-        File [] innerChilds = workingDirectory.listFiles();
-        //Length may be zero
-        Arrays.sort(innerChilds);
-
-        for (int i = 0; i < innerChilds.length;i++){
-
-            if(innerChilds[i].isDirectory()){
-                String name = innerChilds[i].getName();
-                if (name.endsWith(".app")){
-                    applicationIndex.add(new Application(innerChilds[i]));
-                }
-            }
-
-        }
+    public Linker(){
 
     }
 
-    public Application[] getApplicationIndex(){
-        int listSize = applicationIndex.size();
-        Application[] appIndex = new Application[listSize];
-        for (int i = 0; i < listSize;i++){
-            appIndex[i] = applicationIndex.get(i);
-        }
-        return appIndex;
-    }
+    public void createShorcuts (Application application){
 
-    public void createShorcut (Application application){
-
-        if (application.getLinkPolicy()){
+        if (application.getWillCreateSchorcutStatus()){
 
             try {
-                ProcessBuilder linkProcess = new ProcessBuilder("/bin/zsh","-c", "ln -s \"" + application.getFilePath() + "\" \"" + linkTaget + "\"");
+                ProcessBuilder linkProcess = new ProcessBuilder("/bin/zsh","-c", "ln -s \"" + application.getApplicationPackagePath() + "\" \"" + linkTaget + "\"");
                 linkProcess.start();
                 System.out.println("Done");
+
+            } catch (IOException e){
+
+            }
+        }
+
+    }
+
+    public void deleteShorcuts (Application application){
+
+        if (application.getWillCreateSchorcutStatus()){
+
+            try {
+                ProcessBuilder linkProcess = new ProcessBuilder("/bin/zsh","-c", "rm \"" + linkTaget + application.getApplicationPackageName() + "\"");
+                linkProcess.start();
+                System.out.println("Done");
+
             } catch (IOException e){
 
             }
