@@ -3,6 +3,7 @@ package com.aquirozc.shorcutsmanager.controller;
 import com.aquirozc.shorcutsmanager.userinterface.HomeMenu;
 import com.aquirozc.shorcutsmanager.userinterface.ScrollableAppGrid;
 import com.aquirozc.shorcutsmanager.util.Application;
+import com.aquirozc.shorcutsmanager.util.Helper;
 import com.aquirozc.shorcutsmanager.util.Linker;
 
 import javax.swing.*;
@@ -10,18 +11,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class Controller implements ActionListener {
 
-    public static String ZOOM_IN = "Zoom In";
-    public static String ZOOM_OUT = "Zoom Out";
-    public static String PICK_NEW_DIR = "Change working directory";
-    public static String CLEAR_SELECTION = "Clear selection";
-    public static String SELECT_ALL = "Select all";
-    public static String CREATE_SHOCUTS = "Create shorcuts for selected items";
+    public static final String ZOOM_IN = "Zoom In";
+    public static final String ZOOM_OUT = "Zoom Out";
+    public static final String PICK_NEW_DIR = "Change working directory";
+    public static final String CLEAR_SELECTION = "Clear selection";
+    public static final String SELECT_ALL = "Select all";
+    public static final String CREATE_SHOCUTS = "Create shorcuts for selected items";
+    public static final String DELETE_SHORCUTS = "Delete shorcuts for selected items";
 
-    private Application[] applicationIndex;
+    private ArrayList<Application> applicationIndex;
     private int noSelectedItems;
     private HomeMenu homeMenuPane;
     private JFrame homeMenuFrame;
@@ -34,8 +36,10 @@ public class Controller implements ActionListener {
         appGallery = new ScrollableAppGrid(this);
         noSelectedItems = 0;
 
+        linkManager = new Linker();
+
         homeMenuPane = new HomeMenu(this,appGallery);
-        homeMenuFrame = new JFrame("iShorcutsManager 2023 (Under developement)");
+        homeMenuFrame = new JFrame("iShorcutsManager 2023 Preview (com.aquiroz.shorcutsmanager)");
         
         homeMenuFrame.setContentPane(homeMenuPane);
         homeMenuFrame.setMinimumSize(new Dimension(900,550));
@@ -49,14 +53,6 @@ public class Controller implements ActionListener {
         homeMenuFrame.setVisible(true);
     }
 
-    private void updateButtons(){
-        if (noSelectedItems != 0){
-            homeMenuPane.setButtonsEnabled(true);
-        }else {
-            homeMenuPane.setButtonsEnabled(false);
-        }
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -65,24 +61,34 @@ public class Controller implements ActionListener {
         if(action == PICK_NEW_DIR){
 
             System.setProperty("apple.awt.fileDialogForDirectories", "true");
+
             FileDialog filePicker = new FileDialog(homeMenuFrame);
             filePicker.setVisible(true);
 
-            String fullPath = filePicker.getDirectory() + filePicker.getFile();
+            if(filePicker.getFile() != null){
+                File workingDirectory = new File(filePicker.getDirectory() + filePicker.getFile());
+                homeMenuPane.setCurrentDirLabel(workingDirectory.getName());
+                homeMenuPane.setCurrentDirPath(workingDirectory.getPath());
+                applicationIndex = new Helper().getApplicationIndex(workingDirectory);
+                if (applicationIndex.size() != 0){
+                    appGallery.generateGrid(applicationIndex);
+                    homeMenuPane.setAppGalleryButtonsEnabled(true);
+                }else {
+                    appGallery.showBlankPage();
+                    homeMenuPane.setAppGalleryButtonsEnabled(false);
+                }
+            }else{
+                System.out.println("Oops");
+            }
 
-            homeMenuPane.setCurrentDirLabel(filePicker.getFile());
-            homeMenuPane.setCurrentDirPath(fullPath);
-            linkManager = new Linker(new File(fullPath));
-
-            applicationIndex = linkManager.getApplicationIndex();
-            appGallery.generateGrid(applicationIndex);
+            System.setProperty("apple.awt.fileDialogForDirectories", "false");
 
 
         }else if (action == ZOOM_IN){
 
             int nextLevel = appGallery.getCurrentZoomLevel() + 1;
 
-            if(nextLevel == appGallery.getTotalZoomLevels() -1 ){
+            if(nextLevel == appGallery.getMaximumZoomLevel()){
                 homeMenuPane.updateZoomInButtonStatus(false);
             }
             homeMenuPane.updateZoomOutButtonStatus(true);
@@ -103,48 +109,65 @@ public class Controller implements ActionListener {
             int id = Integer.parseInt(action.substring(7));
             JButton pressedButton = ((JButton) e.getSource());
             Color bgColor;
-            if (applicationIndex[id].getLinkPolicy()){
+            if (applicationIndex.get(id).getWillCreateSchorcutStatus()){
                 bgColor =  new Color(96,96,96);
                 noSelectedItems--;
-                updateButtons();
+                updateShorcutButtons();
             }else{
                 bgColor = new Color(124,201,231);
                 noSelectedItems++;
-                updateButtons();
+                updateShorcutButtons();
             }
 
             pressedButton.setBackground(bgColor);
-            applicationIndex[id].updateLinkPolicy();
+            applicationIndex.get(id).updateWillCreateSchorcutStatus();
 
         } else if (action == SELECT_ALL) {
 
-            for (JButton button : appGallery.getApplicationItem()) {
-                button.setBackground(new Color(124,201,231));
-                applicationIndex[Integer.parseInt(button.getActionCommand().substring(7))].setLinkPolicy(true);
-            }
-            noSelectedItems = applicationIndex.length;
-            updateButtons();
+            updateAllApplicationItems(true,applicationIndex.size(),new Color(124,201,231));
 
         } else if (action == CLEAR_SELECTION){
-            for (JButton button : appGallery.getApplicationItem()) {
-                button.setBackground(new Color(96,96,96));
-                applicationIndex[Integer.parseInt(button.getActionCommand().substring(7))].setLinkPolicy(false);
-            }
-            noSelectedItems = 0;
-            updateButtons();
+
+            updateAllApplicationItems(false,0,new Color(96,96,96));
+
         } else if (action == CREATE_SHOCUTS) {
 
             for (Application application : applicationIndex){
-                linkManager.createShorcut(application);
+                linkManager.createShorcuts(application);
             }
 
-            for (JButton button : appGallery.getApplicationItem()) {
-                button.setBackground(new Color(96,96,96));
-                applicationIndex[Integer.parseInt(button.getActionCommand().substring(7))].setLinkPolicy(false);
+            updateAllApplicationItems(false,0,new Color(96,96,96));
+
+        } else if (action == DELETE_SHORCUTS){
+
+            for (Application application : applicationIndex){
+                linkManager.deleteShorcuts(application);
             }
-            noSelectedItems = 0;
-            updateButtons();
+
+            updateAllApplicationItems(false,0,new Color(96,96,96));
+
         }
 
+    }
+
+    private void updateAllApplicationItems(boolean value, int length, Color bgColor){
+
+        for (JButton button : appGallery.getApplicationItem() ){
+
+            int index = Integer.parseInt(button.getActionCommand().substring(7));
+            button.setBackground(bgColor);
+            applicationIndex.get(index).setWillCreateShorcutStatus(value);
+            noSelectedItems = length;
+
+        }
+        updateShorcutButtons();
+    }
+
+    private void updateShorcutButtons(){
+        if (noSelectedItems != 0){
+            homeMenuPane.setShorcutsButtonsEnabled(true);
+        }else {
+            homeMenuPane.setShorcutsButtonsEnabled(false);
+        }
     }
 }

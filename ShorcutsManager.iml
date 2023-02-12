@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/res" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lib" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -15,7 +16,6 @@
     <orderEntry type="library" name="commons-text" level="project" />
     <orderEntry type="library" name="commons-lang3" level="project" />
     <orderEntry type="library" name="commons-logging-1.2" level="project" />
-    <orderEntry type="library" name="DoctypeChanger" level="project" />
     <orderEntry type="library" name="commons-imaging-1.0-alpha3" level="project" />
   </component>
 </module>
