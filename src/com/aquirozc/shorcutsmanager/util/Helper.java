@@ -1,12 +1,12 @@
 package com.aquirozc.shorcutsmanager.util;
 
-import org.apache.commons.configuration2.ex.ConfigurationException;
-import org.apache.commons.configuration2.plist.XMLPropertyListConfiguration;
+import com.dd.plist.NSDictionary;
+import com.dd.plist.PropertyListFormatException;
+import com.dd.plist.PropertyListParser;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -45,44 +45,23 @@ public class Helper {
 
         File iconBundle = null;
 
-        try {
+        try{
 
-            String iconBundleFileName;
-            XMLPropertyListConfiguration plist= new XMLPropertyListConfiguration();
-            plist.read(new BufferedReader(new FileReader(new File(applicationPackage,"Contents/Info.plist"))));
-            iconBundleFileName = plist.getString("CFBundleIconFile");
+            File file = new File(applicationPackage,"Contents/Info.plist");
+            NSDictionary rootDict = (NSDictionary) PropertyListParser.parse(file);
+            String iconBundleFileName = rootDict.objectForKey("CFBundleIconFile").toString();
 
-            if (iconBundleFileName != null){
+            if (!iconBundleFileName.endsWith(".icns")) iconBundleFileName += ".icns";
 
-                if(!iconBundleFileName.endsWith(".icns")){
-                    iconBundleFileName += ".icns";
-                }
-
-                iconBundle = new File(applicationPackage, "Contents/Resources/" + iconBundleFileName);
-
-            }else {
-
-                File resourcesFolder = new File(applicationPackage, "Contents/Resources/");
-                File [] resourceFiles = resourcesFolder.listFiles();
-
-                for(File file : resourceFiles){
-
-                    if (file.isFile()){
-                        if(file.getName().endsWith(".icns")){
-                            iconBundle = file;
-                            break;
-                        }
-                    }
-
-                }
-            }
+            iconBundle = new File(applicationPackage, "Contents/Resources/" + iconBundleFileName);
 
 
-        } catch (ConfigurationException | FileNotFoundException | NullPointerException e) {
+        }catch (Exception e){
 
         }
 
         return iconBundle;
 
     }
+
 }
