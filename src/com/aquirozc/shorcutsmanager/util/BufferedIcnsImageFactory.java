@@ -1,5 +1,6 @@
 package com.aquirozc.shorcutsmanager.util;
 
+import com.aquirozc.shorcutsmanager.init.ShortcutsManager;
 import org.apache.commons.imaging.ImageReadException;
 import org.apache.commons.imaging.common.BufferedImageFactory;
 import org.apache.commons.imaging.formats.icns.IcnsImageParser;
@@ -11,11 +12,14 @@ import java.awt.GraphicsEnvironment;
 import java.awt.GraphicsDevice;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.RenderingHints;
 import java.awt.Transparency;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 
@@ -34,8 +38,9 @@ public class BufferedIcnsImageFactory implements BufferedImageFactory {
         return getColorBufferedImage(width, height, hasAlpha);
     }
 
-    public ImageIcon [] getIconPack(File file){
+    public ImageIcon [] getIconPack(File applicationPackage){
 
+        File iconBundle = new Helper().findIconBundleFile(applicationPackage);
         ImageIcon [] iconPack = new ImageIcon[5];
 
         IcnsImageParser icnsParser = new IcnsImageParser();
@@ -45,7 +50,7 @@ public class BufferedIcnsImageFactory implements BufferedImageFactory {
         try{
 
             icnsParams.setBufferedImageFactory(this);
-            List<BufferedImage> bufferedImageList= icnsParser.getAllBufferedImages(file);
+            List<BufferedImage> bufferedImageList= icnsParser.getAllBufferedImages(iconBundle);
 
             for(BufferedImage image : bufferedImageList){
 
@@ -66,20 +71,26 @@ public class BufferedIcnsImageFactory implements BufferedImageFactory {
 
         }catch (ImageReadException | IOException | NullPointerException e){
 
+            Logger.getLogger(ShortcutsManager.LOG_TAG).log(Level.SEVERE,"Failed to retrieve images from " + iconBundle.getAbsolutePath());
+
         }
 
         return  iconPack;
     }
 
-    public static BufferedImage getResizedBufferedImage(BufferedImage img, int newW, int newH) {
-        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
-        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+    public static BufferedImage getResizedBufferedImage(BufferedImage img, int newW, int newH){
 
-        Graphics2D g2d = dimg.createGraphics();
-        g2d.drawImage(tmp, 0, 0, null);
+        Image temp = img.getScaledInstance((int)(newW*1.5f),(int)(newH*1.5f),Image.SCALE_AREA_AVERAGING);
+        BufferedImage resizedImg = new BufferedImage(newW,newH,BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = resizedImg.createGraphics();
+
+        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.drawImage(temp, 0, 0, newW,newH, null);
         g2d.dispose();
 
-        return dimg;
+        return resizedImg;
     }
 
     public Boolean isBlank(BufferedImage bufferedImage){
@@ -93,6 +104,7 @@ public class BufferedIcnsImageFactory implements BufferedImageFactory {
                     break;
                 }
             }
+
         }
 
         return isBlank;
