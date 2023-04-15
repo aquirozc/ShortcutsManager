@@ -1,19 +1,24 @@
 package com.aquirozc.shorcutsmanager.util;
 
+import com.aquirozc.shorcutsmanager.init.ShortcutsManager;
 import com.dd.plist.NSDictionary;
 import com.dd.plist.PropertyListFormatException;
 import com.dd.plist.PropertyListParser;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Helper {
 
     public Helper(){
-
+        super();
     }
 
     public ArrayList <Application> getApplicationIndex(File workingDirectory){
@@ -56,7 +61,9 @@ public class Helper {
             iconBundle = new File(applicationPackage, "Contents/Resources/" + iconBundleFileName);
 
 
-        }catch (Exception e){
+        }catch (IOException | PropertyListFormatException | ParseException | ParserConfigurationException | SAXException e){
+
+            Logger.getLogger(ShortcutsManager.LOG_TAG).log(Level.SEVERE,"Failed to parse Info.plist from "  + applicationPackage.getName() + " package. Could not locale CFBundleIconFile");
 
         }
 
