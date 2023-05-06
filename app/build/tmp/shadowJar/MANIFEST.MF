@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-MainClass: com.aquirozc.shortcutsmanager.init.ShortcutsManager
-Main-Class: com.aquirozc.shortcutsmanager.init.ShortcutsManager
-
