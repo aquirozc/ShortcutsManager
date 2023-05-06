@@ -17,7 +17,6 @@ public class Linker {
 
     public Linker(){
         super();
-        symLinkTarget = "/Volumes/Elements/Linktest";
     }
 
     public void createShortcut (Application application){
