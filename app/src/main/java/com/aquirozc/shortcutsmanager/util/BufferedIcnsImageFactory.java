@@ -71,7 +71,7 @@ public class BufferedIcnsImageFactory implements BufferedImageFactory {
 
         }catch (ImageReadException | IOException | NullPointerException e){
 
-            Logger.getLogger(ShortcutsManager.LOG_TAG).log(Level.SEVERE,"Failed to retrieve images from " + iconBundle.getAbsolutePath());
+            Logger.getLogger(ShortcutsManager.LOG_TAG).log(Level.SEVERE,"Failed to retrieve images from " + applicationPackage.getName() + " package ICNS file");
 
         }
 
