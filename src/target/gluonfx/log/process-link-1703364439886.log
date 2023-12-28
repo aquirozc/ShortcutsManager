@@ -1,0 +1,16 @@
+Process
+=======
+link
+
+Command Line
+============
+gcc /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/AppDelegate.o /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/launcher.o /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/SVM-1703364285283/com.aquirozc.shortcutsmanager.init.shortcutsmanager.o -ljava -lnio -lzip -lnet -lprefs -lj2pkcs11 -lextnet -ljvm -llibchelper -ldarwin -lpthread -lz -ldl -lstdc++ -mmacosx-version-min=10.12 -lobjc -Wl,-framework,Foundation -Wl,-framework,AppKit -Wl,-framework,ApplicationServices -Wl,-framework,OpenGL -Wl,-framework,QuartzCore -Wl,-framework,Security -Wl,-framework,Accelerate -Wl,-force_load,/Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/libglass.a -Wl,-force_load,/Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/libjavafx_font.a -Wl,-force_load,/Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/libjavafx_iio.a -Wl,-force_load,/Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/libprism_es2.a -o /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/ShortcutsManager -L/Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib -L/Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/lib/svm/clibraries/darwin-aarch64 -L/Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/lib/static/darwin-aarch64
+
+Output
+======
+ld: warning: no platform load command found in '/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/SVM-1703364285283/com.aquirozc.shortcutsmanager.init.shortcutsmanager.o', assuming: macOS
+
+
+Result
+======
+result: 0

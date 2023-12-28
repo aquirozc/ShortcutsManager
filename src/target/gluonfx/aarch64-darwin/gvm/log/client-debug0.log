@@ -1,0 +1,664 @@
+[jue dic 21 13:47:14 CST 2023][INFO] ==================== COMPILE TASK ====================
+[jue dic 21 13:47:15 CST 2023][INFO] We will now compile your code for aarch64-apple-darwin. This may take some time.
+[jue dic 21 13:47:15 CST 2023][FINE] Extracting native libs to: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/lib
+[jue dic 21 13:47:15 CST 2023][FINE] Looking for resource: /native/macosx/AppDelegate.m
+[jue dic 21 13:47:15 CST 2023][FINE] Looking for resource: /native/macosx/launcher.c
+[jue dic 21 13:47:15 CST 2023][FINE] PB Command for compile-additional-sources: gcc -c -DSUBSTRATE -mmacosx-version-min=10.12 -I/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager AppDelegate.m launcher.c
+[jue dic 21 13:47:15 CST 2023][FINE] Start process compile-additional-sources...
+[jue dic 21 13:47:32 CST 2023][FINE] Result for compile-additional-sources: 0
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/.DS_Store
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/FrutigerRedmond.css to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/FrutigerRedmond.css
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light-Licence.txt to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/Khula-Light-Licence.txt
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/SupportedPlatforms.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/SupportedPlatforms.png
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Shortcuts Manager.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/Shortcuts Manager.png
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light.ttf to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/Khula-Light.ttf
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/com/aquirozc/.DS_Store
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/com/aquirozc/shortcutsmanager/.DS_Store
+[jue dic 21 13:47:32 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/com/.DS_Store
+[jue dic 21 13:47:32 CST 2023][FINE] PB Command for jar: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/jar cf /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/classes.jar -C /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689 .
+[jue dic 21 13:47:32 CST 2023][FINE] Start process jar...
+[jue dic 21 13:47:33 CST 2023][FINE] Result for jar: 0
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning for init build time files
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/classes.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning for reflection files
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar::META-INF/substrate/config/reflectionconfig.json
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar::META-INF/substrate/config/reflectionconfig.json
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar::META-INF/substrate/config/reflectionconfig.json
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/reflectionconfig-aarch64-darwin.json
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/reflectionconfig.json
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/classes.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning for JNI files
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/jniconfig-aarch64-darwin.json
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/jniconfig.json
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/classes.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning for resource files
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4931194796378755689/classes.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/.DS_Store
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/FrutigerRedmond.css to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/FrutigerRedmond.css
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light-Licence.txt to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/Khula-Light-Licence.txt
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/SupportedPlatforms.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/SupportedPlatforms.png
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Shortcuts Manager.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/Shortcuts Manager.png
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light.ttf to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/Khula-Light.ttf
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/com/aquirozc/.DS_Store
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/com/aquirozc/shortcutsmanager/.DS_Store
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/com/.DS_Store
+[jue dic 21 13:47:33 CST 2023][FINE] PB Command for jar: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/jar cf /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/classes.jar -C /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675 .
+[jue dic 21 13:47:33 CST 2023][FINE] Start process jar...
+[jue dic 21 13:47:33 CST 2023][FINE] Result for jar: 0
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning for resource bundles
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar::META-INF/substrate/config/resourcebundles
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/resourcebundles
+[jue dic 21 13:47:33 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes4208315122443384675/classes.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/clove-io-0.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/icns-core-1.2.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/dd-plist-1.27.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/commons-imaging-1.0-alpha3.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.base.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.controls.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.fxml.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.graphics.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Class-Path manifest entry for pathing jar: ../../../../classes deps/clove-io-0.2.jar deps/icns-core-1.2.jar deps/dd-plist-1.27.jar deps/commons-imaging-1.0-alpha3.jar deps/javafx.base.jar deps/javafx.controls.jar deps/javafx.fxml.jar deps/javafx.graphics.jar
+[jue dic 21 13:47:33 CST 2023][FINE] Pathing jar created at /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/classpathJar.jar
+[jue dic 21 13:47:33 CST 2023][FINE] PB Command for compile: /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/bin/native-image -Djdk.internal.lambda.eagerlyInitialize=false --no-server -H:+SharedLibrary -H:+AddAllCharsets -H:+ReportExceptionStackTraces -H:-DeadlockWatchdogExitOnTimeout -H:DeadlockWatchdogInterval=0 -H:+RemoveSaturatedTypeFlows -H:+ExitAfterRelocatableImageWrite -H:TempDirectory=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp -H:EnableURLProtocols=http,https -H:ReflectionConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/reflectionconfig-aarch64-darwin.json -H:JNIConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/jniconfig-aarch64-darwin.json -H:ResourceConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/resourceconfig-aarch64-darwin.json -H:IncludeResourceBundles=com/sun/javafx/scene/control/skin/resources/controls,com/sun/javafx/scene/control/skin/resources/controls-nt,com.sun.javafx.tk.quantum.QuantumMessagesBundle -Dsvm.platform=org.graalvm.nativeimage.Platform$MACOS_AARCH64 -cp /Users/alex/.m2/repository/com/gluonhq/substrate/0.0.61/substrate-0.0.61.jar:/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/classpathJar.jar com.aquirozc.shortcutsmanager.init.ShortcutsManager
+[jue dic 21 13:47:33 CST 2023][FINE] Start process compile...
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: Ignoring server-mode native-image argument --no-server.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:ReflectionConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/reflectionconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:IncludeResourceBundles=com/sun/javafx/scene/control/skin/resources/controls,com/sun/javafx/scene/control/skin/resources/controls-nt,com.sun.javafx.tk.quantum.QuantumMessagesBundle' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:TempDirectory=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:ResourceConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/resourceconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:-DeadlockWatchdogExitOnTimeout' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:+ExitAfterRelocatableImageWrite' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:JNIConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/jniconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:EnableURLProtocols=http,https' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:+SharedLibrary' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:DeadlockWatchdogInterval=0' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: The option '-H:+RemoveSaturatedTypeFlows' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[jue dic 21 13:47:34 CST 2023][INFO] [SUB] Warning: Please re-evaluate whether any experimental option is required, and either remove or unlock it. The build output lists all active experimental options, including where they come from and possible alternatives. If you think an experimental option should be considered as stable, please file an issue.
+[jue dic 21 13:47:47 CST 2023][INFO] [SUB] ========================================================================================================================
+[jue dic 21 13:47:47 CST 2023][INFO] [SUB] GraalVM Native Image: Generating 'com.aquirozc.shortcutsmanager.init.shortcutsmanager' (shared library)...
+[jue dic 21 13:47:47 CST 2023][INFO] [SUB] ========================================================================================================================
+[jue dic 21 13:47:47 CST 2023][INFO] [SUB] For detailed information and explanations on the build output, visit:
+[jue dic 21 13:47:47 CST 2023][INFO] [SUB] https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+[jue dic 21 13:47:47 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB] [1/8] Initializing...                                                                                   (14.5s @ 0.10GB)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  Graal compiler: optimization level: 2, target machine: armv8-a, PGO: off
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  C compiler: cc (apple, arm64, 15.0.0)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  Garbage collector: Serial GC (max heap size: 80% of RAM)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  1 user-specific feature(s):
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - com.oracle.svm.thirdparty.gson.GsonFeature
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  10 experimental option(s) unlocked:
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:DeadlockWatchdogInterval' (origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:EnableURLProtocols' (alternative API option(s): --enable-http, --enable-https; origin(s): command line, command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:-DeadlockWatchdogExitOnTimeout' (origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:+ExitAfterRelocatableImageWrite' (origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:ReflectionConfigurationFiles' (origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:ResourceConfigurationFiles' (origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:JNIConfigurationFiles' (origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:IncludeResourceBundles' (origin(s): command line, command line, command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:+SharedLibrary' (alternative API option(s): --shared; origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - '-H:TempDirectory' (origin(s): command line)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB] Build resources:
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - 6.05GB of memory (75.6% of 8.00GB system memory, determined at start)
+[jue dic 21 13:47:57 CST 2023][INFO] [SUB]  - 8 thread(s) (100.0% of 8 available processor(s), determined at start)
+[jue dic 21 13:48:37 CST 2023][INFO] [SUB] [2/8] Performing analysis...  [*****]                                                                   (39.6s @ 0.90GB)
+[jue dic 21 13:48:37 CST 2023][INFO] [SUB]    11,937 reachable types   (88.6% of   13,477 total)
+[jue dic 21 13:48:37 CST 2023][INFO] [SUB]    19,764 reachable fields  (63.7% of   31,050 total)
+[jue dic 21 13:48:37 CST 2023][INFO] [SUB]    62,373 reachable methods (63.5% of   98,188 total)
+[jue dic 21 13:48:37 CST 2023][INFO] [SUB]     3,392 types,   213 fields, and 2,777 methods registered for reflection
+[jue dic 21 13:48:37 CST 2023][INFO] [SUB]       114 types,    95 fields, and   195 methods registered for JNI access
+[jue dic 21 13:48:37 CST 2023][INFO] [SUB]         5 native libraries: -framework CoreServices, -framework Foundation, dl, pthread, z
+[jue dic 21 13:48:42 CST 2023][INFO] [SUB] [3/8] Building universe...                                                                               (5.1s @ 1.24GB)
+[jue dic 21 13:48:48 CST 2023][INFO] [SUB] [4/8] Parsing methods...      [***]                                                                      (5.5s @ 1.36GB)
+[jue dic 21 13:48:52 CST 2023][INFO] [SUB] [5/8] Inlining methods...     [****]                                                                     (4.0s @ 1.22GB)
+[jue dic 21 13:50:30 CST 2023][INFO] [SUB] [6/8] Compiling methods...    [*********]                                                               (92.4s @ 2.05GB)
+[jue dic 21 13:50:37 CST 2023][INFO] [SUB] [7/8] Layouting methods...    [***]                                                                      (6.6s @ 2.80GB)
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB] 
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB]                        20.1s (10.4% of total time) in 154 GCs | Peak RSS: 2.55GB | CPU load: 5.17
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB] Produced artifacts:
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/com.aquirozc.shortcutsmanager.init.shortcutsmanager.h (c_header)
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/com.aquirozc.shortcutsmanager.init.shortcutsmanager_dynamic.h (c_header)
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/graal_isolate.h (c_header)
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/graal_isolate_dynamic.h (c_header)
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB] ========================================================================================================================
+[jue dic 21 13:50:50 CST 2023][INFO] [SUB] Finished generating 'com.aquirozc.shortcutsmanager.init.shortcutsmanager' in 3m 2s.
+[jue dic 21 13:50:51 CST 2023][FINE] Result for compile: 0
+[jue dic 21 13:50:51 CST 2023][FINE] Logging process [compile] to file: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/log/process-compile-1703188251843.log
+[jue dic 21 13:50:51 CST 2023][FINE] Checking execution permissions for /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1
+[jue dic 21 13:50:51 CST 2023][FINE] PB Command for check xattr: xattr /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1
+[jue dic 21 13:50:51 CST 2023][FINE] Start process check xattr...
+[jue dic 21 13:50:51 CST 2023][FINE] Result for check xattr: 0
+[jue dic 21 13:50:51 CST 2023][FINE] PB Command for check version: /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/bin/java -version
+[jue dic 21 13:50:51 CST 2023][FINE] Start process check version...
+[jue dic 21 13:50:52 CST 2023][FINE] [SUB] java version "21.0.1" 2023-10-17
+[jue dic 21 13:50:52 CST 2023][FINE] [SUB] Java(TM) SE Runtime Environment Oracle GraalVM 21.0.1+12.1 (build 21.0.1+12-jvmci-23.1-b19)
+[jue dic 21 13:50:52 CST 2023][FINE] [SUB] Java HotSpot(TM) 64-Bit Server VM Oracle GraalVM 21.0.1+12.1 (build 21.0.1+12-jvmci-23.1-b19, mixed mode, sharing)
+[jue dic 21 13:50:52 CST 2023][FINE] Result for check version: 0
+[jue dic 21 13:50:52 CST 2023][INFO] Substrate is tested with the Gluon's GraalVM build which you can find at https://github.com/gluonhq/graal/releases.
+While you can still use other GraalVM builds, there is no guarantee that these will work properly with Substrate
+[vie dic 22 09:56:50 CST 2023][INFO] ==================== PACKAGE TASK ====================
+[vie dic 22 09:56:50 CST 2023][INFO] Building app bundle: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/ShortcutsManager.app
+[vie dic 22 09:56:51 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/ShortcutsManager to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/ShortcutsManager.app/Contents/MacOS/ShortcutsManager
+[vie dic 22 09:56:51 CST 2023][FINE] PB Command for sdk: xcrun --sdk macosx --show-sdk-path
+[vie dic 22 09:56:51 CST 2023][FINE] Start process sdk...
+[vie dic 22 09:57:06 CST 2023][FINE] [SUB] /Volumes/Elements/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
+[vie dic 22 09:57:06 CST 2023][FINE] Result for sdk: 0
+[vie dic 22 09:57:06 CST 2023][FINE] platform info file at /Volumes/Elements/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist
+[vie dic 22 09:57:06 CST 2023][FINE] Copy Info.plist to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gensrc/darwin/Info.plist
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/Info.plist
+[vie dic 22 09:57:06 CST 2023][INFO] Default macOS plist generated in /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gensrc/darwin/Info.plist.
+Consider copying it to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/src/darwin before performing any modification
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_128@1x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_128@2x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_16@1x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_16@2x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_256@1x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_256@2x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_32@1x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_32@2x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_512@1x.png
+[vie dic 22 09:57:06 CST 2023][FINE] Looking for resource: /native/macosx/assets/AppIcon.iconset/icon_512@2x.png
+[vie dic 22 09:57:06 CST 2023][FINE] PB Command for icon: iconutil -c icns /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gensrc/darwin/assets/AppIcon.iconset
+[vie dic 22 09:57:06 CST 2023][FINE] Start process icon...
+[vie dic 22 09:57:06 CST 2023][FINE] Result for icon: 0
+[vie dic 22 09:57:06 CST 2023][FINE] Copy AppIcon.icns to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/ShortcutsManager.app/Contents/Resources/AppIcon.icns
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gensrc/darwin/assets/AppIcon.icns to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/ShortcutsManager.app/Contents/Resources/AppIcon.icns
+[vie dic 22 09:57:07 CST 2023][INFO] Default macOS resources generated in /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gensrc/darwin.
+Consider copying them to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/src/darwin before performing any modification
+[vie dic 22 09:57:07 CST 2023][FINE] Copy PkgInfo to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/ShortcutsManager.app/Contents
+[vie dic 22 09:57:07 CST 2023][FINE] Looking for resource: /native/macosx/assets/PkgInfo
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning for plist files
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/.DS_Store
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/FrutigerRedmond.css to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/FrutigerRedmond.css
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light-Licence.txt to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/Khula-Light-Licence.txt
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/SupportedPlatforms.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/SupportedPlatforms.png
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Shortcuts Manager.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/Shortcuts Manager.png
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/OpenFolderIcon.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/OpenFolderIcon.png
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light.ttf to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/Khula-Light.ttf
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/com/aquirozc/.DS_Store
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/com/aquirozc/shortcutsmanager/.DS_Store
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/com/.DS_Store
+[vie dic 22 09:57:07 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/ManualHomeInmersive.fxml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/ManualHomeInmersive.fxml
+[vie dic 22 09:57:07 CST 2023][FINE] PB Command for jar: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/jar cf /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/classes.jar -C /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023 .
+[vie dic 22 09:57:07 CST 2023][FINE] Start process jar...
+[vie dic 22 09:57:07 CST 2023][FINE] Result for jar: 0
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-base/22-ea+16/javafx-base-22-ea+16-mac-aarch64.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-base/22-ea+16/javafx-base-22-ea+16.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-controls/22-ea+16/javafx-controls-22-ea+16-mac-aarch64.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-controls/22-ea+16/javafx-controls-22-ea+16.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-fxml/22-ea+16/javafx-fxml-22-ea+16-mac-aarch64.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-fxml/22-ea+16/javafx-fxml-22-ea+16.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-graphics/22-ea+16/javafx-graphics-22-ea+16-mac-aarch64.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/openjfx/javafx-graphics/22-ea+16/javafx-graphics-22-ea+16.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17054299163586911023/classes.jar
+[vie dic 22 09:57:07 CST 2023][FINE] Plist at /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gensrc/darwin/Info.plist
+[vie dic 22 09:57:07 CST 2023][FINE] PB Command for security: security find-identity -p codesigning -v
+[vie dic 22 09:57:07 CST 2023][FINE] Start process security...
+[vie dic 22 09:57:07 CST 2023][FINE] [SUB]      0 valid identities found
+[vie dic 22 09:57:07 CST 2023][FINE] Result for security: 0
+[vie dic 22 09:57:07 CST 2023][FINE] Find identity by pattern from 0 identities
+[sáb dic 23 10:03:52 CST 2023][INFO] ==================== COMPILE TASK ====================
+[sáb dic 23 10:03:54 CST 2023][INFO] We will now compile your code for aarch64-apple-darwin. This may take some time.
+[sáb dic 23 10:03:54 CST 2023][FINE] Extracting native libs to: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/lib
+[sáb dic 23 10:03:54 CST 2023][FINE] Looking for resource: /native/macosx/AppDelegate.m
+[sáb dic 23 10:03:54 CST 2023][FINE] Looking for resource: /native/macosx/launcher.c
+[sáb dic 23 10:03:54 CST 2023][FINE] PB Command for compile-additional-sources: gcc -c -DSUBSTRATE -mmacosx-version-min=10.12 -I/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager AppDelegate.m launcher.c
+[sáb dic 23 10:03:54 CST 2023][FINE] Start process compile-additional-sources...
+[sáb dic 23 10:04:14 CST 2023][FINE] Result for compile-additional-sources: 0
+[sáb dic 23 10:04:16 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/.DS_Store
+[sáb dic 23 10:04:16 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/FrutigerRedmond.css to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/FrutigerRedmond.css
+[sáb dic 23 10:04:16 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/MANIFEST.MF to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/META-INF/MANIFEST.MF
+[sáb dic 23 10:04:16 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml
+[sáb dic 23 10:04:16 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties
+[sáb dic 23 10:04:16 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light-Licence.txt to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/Khula-Light-Licence.txt
+[sáb dic 23 10:04:16 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/SupportedPlatforms.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/SupportedPlatforms.png
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Shortcuts Manager.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/Shortcuts Manager.png
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/OpenFolderIcon.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/OpenFolderIcon.png
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light.ttf to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/Khula-Light.ttf
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/com/aquirozc/.DS_Store
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/com/aquirozc/shortcutsmanager/.DS_Store
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/model/Application.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/com/aquirozc/shortcutsmanager/model/Application.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/Indexer.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/com/aquirozc/shortcutsmanager/helper/Indexer.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/IconFinder.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/com/aquirozc/shortcutsmanager/helper/IconFinder.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/com/.DS_Store
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/ManualHomeInmersive.fxml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/ManualHomeInmersive.fxml
+[sáb dic 23 10:04:17 CST 2023][FINE] PB Command for jar: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/jar cf /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/classes.jar -C /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467 .
+[sáb dic 23 10:04:17 CST 2023][FINE] Start process jar...
+[sáb dic 23 10:04:17 CST 2023][FINE] Result for jar: 0
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning for init build time files
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/classes.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning for reflection files
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/reflectionconfig-aarch64-darwin.json
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/classes.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning for JNI files
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/jniconfig-aarch64-darwin.json
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/jniconfig.json
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/classes.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning for resource files
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15779991477293937467/classes.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/.DS_Store
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/FrutigerRedmond.css to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/FrutigerRedmond.css
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/MANIFEST.MF to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/META-INF/MANIFEST.MF
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light-Licence.txt to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/Khula-Light-Licence.txt
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/SupportedPlatforms.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/SupportedPlatforms.png
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Shortcuts Manager.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/Shortcuts Manager.png
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/OpenFolderIcon.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/OpenFolderIcon.png
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light.ttf to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/Khula-Light.ttf
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/com/aquirozc/.DS_Store
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/com/aquirozc/shortcutsmanager/.DS_Store
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/model/Application.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/com/aquirozc/shortcutsmanager/model/Application.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/Indexer.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/com/aquirozc/shortcutsmanager/helper/Indexer.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/IconFinder.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/com/aquirozc/shortcutsmanager/helper/IconFinder.class
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/com/.DS_Store
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/ManualHomeInmersive.fxml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/ManualHomeInmersive.fxml
+[sáb dic 23 10:04:17 CST 2023][FINE] PB Command for jar: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/jar cf /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/classes.jar -C /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530 .
+[sáb dic 23 10:04:17 CST 2023][FINE] Start process jar...
+[sáb dic 23 10:04:17 CST 2023][FINE] Result for jar: 0
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning for resource bundles
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar::META-INF/substrate/config/resourcebundles
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/resourcebundles
+[sáb dic 23 10:04:17 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes18022533051162266530/classes.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/clove-io-0.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/icns-core-1.2.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/dd-plist-1.27.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.base.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.controls.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.fxml.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.graphics.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Class-Path manifest entry for pathing jar: ../../../../classes deps/clove-io-0.2.jar deps/icns-core-1.2.jar deps/dd-plist-1.27.jar deps/commons-imaging-1.0-alpha3.jar deps/javafx.base.jar deps/javafx.controls.jar deps/javafx.fxml.jar deps/javafx.graphics.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] Pathing jar created at /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/classpathJar.jar
+[sáb dic 23 10:04:17 CST 2023][FINE] PB Command for compile: /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/bin/native-image -Djdk.internal.lambda.eagerlyInitialize=false --no-server -H:+SharedLibrary -H:+AddAllCharsets -H:+ReportExceptionStackTraces -H:-DeadlockWatchdogExitOnTimeout -H:DeadlockWatchdogInterval=0 -H:+RemoveSaturatedTypeFlows -H:+ExitAfterRelocatableImageWrite -H:TempDirectory=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp -H:EnableURLProtocols=http,https -H:ReflectionConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/reflectionconfig-aarch64-darwin.json -H:JNIConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/jniconfig-aarch64-darwin.json -H:ResourceConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/resourceconfig-aarch64-darwin.json -H:IncludeResourceBundles=com/sun/javafx/scene/control/skin/resources/controls,com/sun/javafx/scene/control/skin/resources/controls-nt,com.sun.javafx.tk.quantum.QuantumMessagesBundle -Dsvm.platform=org.graalvm.nativeimage.Platform$MACOS_AARCH64 -cp /Users/alex/.m2/repository/com/gluonhq/substrate/0.0.61/substrate-0.0.61.jar:/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/classpathJar.jar com.aquirozc.shortcutsmanager.init.ShortcutsManager
+[sáb dic 23 10:04:17 CST 2023][FINE] Start process compile...
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: Ignoring server-mode native-image argument --no-server.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:ReflectionConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/reflectionconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:IncludeResourceBundles=com/sun/javafx/scene/control/skin/resources/controls,com/sun/javafx/scene/control/skin/resources/controls-nt,com.sun.javafx.tk.quantum.QuantumMessagesBundle' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:TempDirectory=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:ResourceConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/resourceconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:-DeadlockWatchdogExitOnTimeout' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:+ExitAfterRelocatableImageWrite' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:JNIConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/jniconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:EnableURLProtocols=http,https' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:+SharedLibrary' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:DeadlockWatchdogInterval=0' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: The option '-H:+RemoveSaturatedTypeFlows' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 10:04:18 CST 2023][INFO] [SUB] Warning: Please re-evaluate whether any experimental option is required, and either remove or unlock it. The build output lists all active experimental options, including where they come from and possible alternatives. If you think an experimental option should be considered as stable, please file an issue.
+[sáb dic 23 10:04:32 CST 2023][INFO] [SUB] ========================================================================================================================
+[sáb dic 23 10:04:32 CST 2023][INFO] [SUB] GraalVM Native Image: Generating 'com.aquirozc.shortcutsmanager.init.shortcutsmanager' (shared library)...
+[sáb dic 23 10:04:32 CST 2023][INFO] [SUB] ========================================================================================================================
+[sáb dic 23 10:04:32 CST 2023][INFO] [SUB] For detailed information and explanations on the build output, visit:
+[sáb dic 23 10:04:32 CST 2023][INFO] [SUB] https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+[sáb dic 23 10:04:32 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB] [1/8] Initializing...                                                                                   (15.7s @ 0.10GB)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  Graal compiler: optimization level: 2, target machine: armv8-a, PGO: off
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  C compiler: cc (apple, arm64, 15.0.0)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  Garbage collector: Serial GC (max heap size: 80% of RAM)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  1 user-specific feature(s):
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - com.oracle.svm.thirdparty.gson.GsonFeature
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  10 experimental option(s) unlocked:
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:DeadlockWatchdogInterval' (origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:EnableURLProtocols' (alternative API option(s): --enable-http, --enable-https; origin(s): command line, command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:-DeadlockWatchdogExitOnTimeout' (origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:+ExitAfterRelocatableImageWrite' (origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:ReflectionConfigurationFiles' (origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:ResourceConfigurationFiles' (origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:JNIConfigurationFiles' (origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:IncludeResourceBundles' (origin(s): command line, command line, command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:+SharedLibrary' (alternative API option(s): --shared; origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - '-H:TempDirectory' (origin(s): command line)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB] Build resources:
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - 6.05GB of memory (75.6% of 8.00GB system memory, determined at start)
+[sáb dic 23 10:04:42 CST 2023][INFO] [SUB]  - 8 thread(s) (100.0% of 8 available processor(s), determined at start)
+[sáb dic 23 10:05:27 CST 2023][INFO] [SUB] Found pending operations, continuing analysis.
+[sáb dic 23 10:05:28 CST 2023][INFO] [SUB] [2/8] Performing analysis...  [******]                                                                  (45.6s @ 0.95GB)
+[sáb dic 23 10:05:28 CST 2023][INFO] [SUB]    12,059 reachable types   (88.7% of   13,602 total)
+[sáb dic 23 10:05:28 CST 2023][INFO] [SUB]    20,019 reachable fields  (63.9% of   31,353 total)
+[sáb dic 23 10:05:28 CST 2023][INFO] [SUB]    63,258 reachable methods (63.4% of   99,767 total)
+[sáb dic 23 10:05:28 CST 2023][INFO] [SUB]     3,440 types,   212 fields, and 2,775 methods registered for reflection
+[sáb dic 23 10:05:28 CST 2023][INFO] [SUB]       114 types,    95 fields, and   195 methods registered for JNI access
+[sáb dic 23 10:05:28 CST 2023][INFO] [SUB]         5 native libraries: -framework CoreServices, -framework Foundation, dl, pthread, z
+[sáb dic 23 10:05:36 CST 2023][INFO] [SUB] [3/8] Building universe...                                                                               (7.1s @ 1.02GB)
+[sáb dic 23 10:05:42 CST 2023][INFO] [SUB] [4/8] Parsing methods...      [***]                                                                      (6.8s @ 1.53GB)
+[sáb dic 23 10:05:47 CST 2023][INFO] [SUB] [5/8] Inlining methods...     [****]                                                                     (4.5s @ 1.48GB)
+[sáb dic 23 10:07:11 CST 2023][INFO] [SUB] [6/8] Compiling methods...    [*********]                                                               (83.7s @ 1.15GB)
+[sáb dic 23 10:07:17 CST 2023][INFO] [SUB] [7/8] Layouting methods...    [***]                                                                      (5.8s @ 1.93GB)
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB] 
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB]                        19.9s (10.7% of total time) in 212 GCs | Peak RSS: 3.03GB | CPU load: 5.40
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB] Produced artifacts:
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/com.aquirozc.shortcutsmanager.init.shortcutsmanager.h (c_header)
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/com.aquirozc.shortcutsmanager.init.shortcutsmanager_dynamic.h (c_header)
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/graal_isolate.h (c_header)
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/graal_isolate_dynamic.h (c_header)
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB] ========================================================================================================================
+[sáb dic 23 10:07:26 CST 2023][INFO] [SUB] Finished generating 'com.aquirozc.shortcutsmanager.init.shortcutsmanager' in 2m 59s.
+[sáb dic 23 10:07:27 CST 2023][FINE] Result for compile: 0
+[sáb dic 23 10:07:27 CST 2023][FINE] Logging process [compile] to file: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/log/process-compile-1703347647389.log
+[sáb dic 23 10:07:27 CST 2023][FINE] Checking execution permissions for /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1
+[sáb dic 23 10:07:27 CST 2023][FINE] PB Command for check xattr: xattr /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1
+[sáb dic 23 10:07:27 CST 2023][FINE] Start process check xattr...
+[sáb dic 23 10:07:27 CST 2023][FINE] Result for check xattr: 0
+[sáb dic 23 10:07:27 CST 2023][FINE] PB Command for check version: /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/bin/java -version
+[sáb dic 23 10:07:27 CST 2023][FINE] Start process check version...
+[sáb dic 23 10:07:27 CST 2023][FINE] [SUB] java version "21.0.1" 2023-10-17
+[sáb dic 23 10:07:27 CST 2023][FINE] [SUB] Java(TM) SE Runtime Environment Oracle GraalVM 21.0.1+12.1 (build 21.0.1+12-jvmci-23.1-b19)
+[sáb dic 23 10:07:27 CST 2023][FINE] [SUB] Java HotSpot(TM) 64-Bit Server VM Oracle GraalVM 21.0.1+12.1 (build 21.0.1+12-jvmci-23.1-b19, mixed mode, sharing)
+[sáb dic 23 10:07:27 CST 2023][FINE] Result for check version: 0
+[sáb dic 23 10:07:27 CST 2023][INFO] Substrate is tested with the Gluon's GraalVM build which you can find at https://github.com/gluonhq/graal/releases.
+While you can still use other GraalVM builds, there is no guarantee that these will work properly with Substrate
+[sáb dic 23 14:44:01 CST 2023][INFO] ==================== COMPILE TASK ====================
+[sáb dic 23 14:44:02 CST 2023][INFO] We will now compile your code for aarch64-apple-darwin. This may take some time.
+[sáb dic 23 14:44:02 CST 2023][FINE] Extracting native libs to: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/lib
+[sáb dic 23 14:44:02 CST 2023][FINE] Looking for resource: /native/macosx/AppDelegate.m
+[sáb dic 23 14:44:02 CST 2023][FINE] Looking for resource: /native/macosx/launcher.c
+[sáb dic 23 14:44:02 CST 2023][FINE] PB Command for compile-additional-sources: gcc -c -DSUBSTRATE -mmacosx-version-min=10.12 -I/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager AppDelegate.m launcher.c
+[sáb dic 23 14:44:02 CST 2023][FINE] Start process compile-additional-sources...
+[sáb dic 23 14:44:24 CST 2023][FINE] Result for compile-additional-sources: 0
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/.DS_Store
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/FrutigerRedmond.css to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/FrutigerRedmond.css
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/MANIFEST.MF to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/META-INF/MANIFEST.MF
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light-Licence.txt to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/Khula-Light-Licence.txt
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/SupportedPlatforms.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/SupportedPlatforms.png
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Shortcuts Manager.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/Shortcuts Manager.png
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/OpenFolderIcon.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/OpenFolderIcon.png
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light.ttf to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/Khula-Light.ttf
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/GlassDemo.html to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/GlassDemo.html
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/aquirozc/.DS_Store
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/aquirozc/shortcutsmanager/.DS_Store
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/model/Application.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/aquirozc/shortcutsmanager/model/Application.class
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/view/GlassPane.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/aquirozc/shortcutsmanager/view/GlassPane.class
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/Indexer.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/aquirozc/shortcutsmanager/helper/Indexer.class
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/IconFinder.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/aquirozc/shortcutsmanager/helper/IconFinder.class
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/com/.DS_Store
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/ManualHomeInmersive.fxml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/ManualHomeInmersive.fxml
+[sáb dic 23 14:44:25 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/wood.jpeg to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/wood.jpeg
+[sáb dic 23 14:44:25 CST 2023][FINE] PB Command for jar: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/jar cf /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/classes.jar -C /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278 .
+[sáb dic 23 14:44:25 CST 2023][FINE] Start process jar...
+[sáb dic 23 14:44:26 CST 2023][FINE] Result for jar: 0
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning for init build time files
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/classes.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning for reflection files
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/reflectionconfig-aarch64-darwin.json
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/reflectionconfig.json
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/classes.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning for JNI files
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/jniconfig-aarch64-darwin.json
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/jniconfig.json
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/classes.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning for resource files
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes15256062527406616278/classes.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/.DS_Store
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/FrutigerRedmond.css to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/FrutigerRedmond.css
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/MANIFEST.MF to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/META-INF/MANIFEST.MF
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.xml
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/META-INF/maven/com.aquirozc.shortcutsmanager/ShortcutsManager/pom.properties
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light-Licence.txt to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/Khula-Light-Licence.txt
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/SupportedPlatforms.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/SupportedPlatforms.png
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Shortcuts Manager.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/Shortcuts Manager.png
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/OpenFolderIcon.png to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/OpenFolderIcon.png
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/Khula-Light.ttf to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/Khula-Light.ttf
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/GlassDemo.html to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/GlassDemo.html
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/aquirozc/.DS_Store
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/aquirozc/shortcutsmanager/init/ShortcutsManager.class
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/aquirozc/shortcutsmanager/.DS_Store
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/model/Application.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/aquirozc/shortcutsmanager/model/Application.class
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/view/GlassPane.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/aquirozc/shortcutsmanager/view/GlassPane.class
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/Indexer.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/aquirozc/shortcutsmanager/helper/Indexer.class
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/aquirozc/shortcutsmanager/helper/IconFinder.class to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/aquirozc/shortcutsmanager/helper/IconFinder.class
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/com/.DS_Store to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/com/.DS_Store
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/ManualHomeInmersive.fxml to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/ManualHomeInmersive.fxml
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/classes/wood.jpeg to /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/wood.jpeg
+[sáb dic 23 14:44:26 CST 2023][FINE] PB Command for jar: /Library/Java/JavaVirtualMachines/jdk-21.jdk/Contents/Home/bin/jar cf /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/classes.jar -C /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021 .
+[sáb dic 23 14:44:26 CST 2023][FINE] Start process jar...
+[sáb dic 23 14:44:26 CST 2023][FINE] Result for jar: 0
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning for resource bundles
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar::META-INF/substrate/config/resourcebundles
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Adding classes from /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar::META-INF/substrate/config/resourcebundles
+[sáb dic 23 14:44:26 CST 2023][FINE] Scanning /var/folders/5h/n1jsmlvs1952dv1hrbst88740000gn/T/classes17023772528603316021/classes.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/github/gino0631/clove-io/0.2/clove-io-0.2.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/clove-io-0.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/github/gino0631/icns-core/1.2/icns-core-1.2.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/icns-core-1.2.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/com/googlecode/plist/dd-plist/1.27/dd-plist-1.27.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/dd-plist-1.27.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.m2/repository/org/apache/commons/commons-imaging/1.0-alpha3/commons-imaging-1.0-alpha3.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/commons-imaging-1.0-alpha3.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.base.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.base.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.controls.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.controls.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.fxml.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.fxml.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Copied resource /Users/alex/.gluon/substrate/javafxStaticSdk/21-ea+11.1/darwin-aarch64/sdk/lib/javafx.graphics.jar to /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/deps/javafx.graphics.jar
+[sáb dic 23 14:44:26 CST 2023][FINE] Class-Path manifest entry for pathing jar: ../../../../classes deps/clove-io-0.2.jar deps/icns-core-1.2.jar deps/dd-plist-1.27.jar deps/commons-imaging-1.0-alpha3.jar deps/javafx.base.jar deps/javafx.controls.jar deps/javafx.fxml.jar deps/javafx.graphics.jar
+[sáb dic 23 14:44:27 CST 2023][FINE] Pathing jar created at /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/classpathJar.jar
+[sáb dic 23 14:44:27 CST 2023][FINE] PB Command for compile: /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/bin/native-image -Djdk.internal.lambda.eagerlyInitialize=false --no-server -H:+SharedLibrary -H:+AddAllCharsets -H:+ReportExceptionStackTraces -H:-DeadlockWatchdogExitOnTimeout -H:DeadlockWatchdogInterval=0 -H:+RemoveSaturatedTypeFlows -H:+ExitAfterRelocatableImageWrite -H:TempDirectory=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp -H:EnableURLProtocols=http,https -H:ReflectionConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/reflectionconfig-aarch64-darwin.json -H:JNIConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/jniconfig-aarch64-darwin.json -H:ResourceConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/resourceconfig-aarch64-darwin.json -H:IncludeResourceBundles=com/sun/javafx/scene/control/skin/resources/controls,com/sun/javafx/scene/control/skin/resources/controls-nt,com.sun.javafx.tk.quantum.QuantumMessagesBundle -Dsvm.platform=org.graalvm.nativeimage.Platform$MACOS_AARCH64 -cp /Users/alex/.m2/repository/com/gluonhq/substrate/0.0.61/substrate-0.0.61.jar:/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp/classpathJar.jar com.aquirozc.shortcutsmanager.init.ShortcutsManager
+[sáb dic 23 14:44:27 CST 2023][FINE] Start process compile...
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: Ignoring server-mode native-image argument --no-server.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:ReflectionConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/reflectionconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:IncludeResourceBundles=com/sun/javafx/scene/control/skin/resources/controls,com/sun/javafx/scene/control/skin/resources/controls-nt,com.sun.javafx.tk.quantum.QuantumMessagesBundle' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:TempDirectory=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/tmp' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:ResourceConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/resourceconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:-DeadlockWatchdogExitOnTimeout' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:+ExitAfterRelocatableImageWrite' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:JNIConfigurationFiles=/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/jniconfig-aarch64-darwin.json' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:EnableURLProtocols=http,https' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:+SharedLibrary' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:DeadlockWatchdogInterval=0' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: The option '-H:+RemoveSaturatedTypeFlows' is experimental and must be enabled via '-H:+UnlockExperimentalVMOptions' in the future.
+[sáb dic 23 14:44:27 CST 2023][INFO] [SUB] Warning: Please re-evaluate whether any experimental option is required, and either remove or unlock it. The build output lists all active experimental options, including where they come from and possible alternatives. If you think an experimental option should be considered as stable, please file an issue.
+[sáb dic 23 14:44:43 CST 2023][INFO] [SUB] ========================================================================================================================
+[sáb dic 23 14:44:43 CST 2023][INFO] [SUB] GraalVM Native Image: Generating 'com.aquirozc.shortcutsmanager.init.shortcutsmanager' (shared library)...
+[sáb dic 23 14:44:43 CST 2023][INFO] [SUB] ========================================================================================================================
+[sáb dic 23 14:44:43 CST 2023][INFO] [SUB] For detailed information and explanations on the build output, visit:
+[sáb dic 23 14:44:43 CST 2023][INFO] [SUB] https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/BuildOutput.md
+[sáb dic 23 14:44:43 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB] [1/8] Initializing...                                                                                   (14.9s @ 0.10GB)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  Java version: 21.0.1+12, vendor version: Oracle GraalVM 21.0.1+12.1
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  Graal compiler: optimization level: 2, target machine: armv8-a, PGO: off
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  C compiler: cc (apple, arm64, 15.0.0)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  Garbage collector: Serial GC (max heap size: 80% of RAM)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  1 user-specific feature(s):
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - com.oracle.svm.thirdparty.gson.GsonFeature
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  10 experimental option(s) unlocked:
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:DeadlockWatchdogInterval' (origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:EnableURLProtocols' (alternative API option(s): --enable-http, --enable-https; origin(s): command line, command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:-DeadlockWatchdogExitOnTimeout' (origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:+ExitAfterRelocatableImageWrite' (origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:ReflectionConfigurationFiles' (origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:ResourceConfigurationFiles' (origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:JNIConfigurationFiles' (origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:IncludeResourceBundles' (origin(s): command line, command line, command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:+SharedLibrary' (alternative API option(s): --shared; origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - '-H:TempDirectory' (origin(s): command line)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB] Build resources:
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - 6.05GB of memory (75.6% of 8.00GB system memory, determined at start)
+[sáb dic 23 14:44:52 CST 2023][INFO] [SUB]  - 8 thread(s) (100.0% of 8 available processor(s), determined at start)
+[sáb dic 23 14:45:32 CST 2023][INFO] [SUB] [2/8] Performing analysis...  [*****]                                                                   (39.6s @ 1.30GB)
+[sáb dic 23 14:45:33 CST 2023][INFO] [SUB]    12,063 reachable types   (88.7% of   13,606 total)
+[sáb dic 23 14:45:33 CST 2023][INFO] [SUB]    20,025 reachable fields  (63.9% of   31,332 total)
+[sáb dic 23 14:45:33 CST 2023][INFO] [SUB]    63,281 reachable methods (63.4% of   99,778 total)
+[sáb dic 23 14:45:33 CST 2023][INFO] [SUB]     3,441 types,   212 fields, and 2,776 methods registered for reflection
+[sáb dic 23 14:45:33 CST 2023][INFO] [SUB]       114 types,    95 fields, and   195 methods registered for JNI access
+[sáb dic 23 14:45:33 CST 2023][INFO] [SUB]         5 native libraries: -framework CoreServices, -framework Foundation, dl, pthread, z
+[sáb dic 23 14:45:38 CST 2023][INFO] [SUB] [3/8] Building universe...                                                                               (5.4s @ 1.23GB)
+[sáb dic 23 14:45:43 CST 2023][INFO] [SUB] [4/8] Parsing methods...      [***]                                                                      (5.2s @ 1.53GB)
+[sáb dic 23 14:45:46 CST 2023][INFO] [SUB] [5/8] Inlining methods...     [****]                                                                     (2.3s @ 1.87GB)
+[sáb dic 23 14:46:57 CST 2023][INFO] [SUB] [6/8] Compiling methods...    [********]                                                                (71.5s @ 2.01GB)
+[sáb dic 23 14:47:03 CST 2023][INFO] [SUB] [7/8] Layouting methods...    [***]                                                                      (5.1s @ 2.78GB)
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB] 
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB]                        15.0s (9.2% of total time) in 210 GCs | Peak RSS: 3.48GB | CPU load: 5.85
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB] ------------------------------------------------------------------------------------------------------------------------
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB] Produced artifacts:
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/com.aquirozc.shortcutsmanager.init.shortcutsmanager.h (c_header)
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/com.aquirozc.shortcutsmanager.init.shortcutsmanager_dynamic.h (c_header)
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/graal_isolate.h (c_header)
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB]  /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager/graal_isolate_dynamic.h (c_header)
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB] ========================================================================================================================
+[sáb dic 23 14:47:14 CST 2023][INFO] [SUB] Finished generating 'com.aquirozc.shortcutsmanager.init.shortcutsmanager' in 2m 36s.
+[sáb dic 23 14:47:14 CST 2023][FINE] Result for compile: 0
+[sáb dic 23 14:47:14 CST 2023][FINE] Logging process [compile] to file: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/log/process-compile-1703364434658.log
+[sáb dic 23 14:47:14 CST 2023][FINE] Checking execution permissions for /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1
+[sáb dic 23 14:47:14 CST 2023][FINE] PB Command for check xattr: xattr /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1
+[sáb dic 23 14:47:14 CST 2023][FINE] Start process check xattr...
+[sáb dic 23 14:47:14 CST 2023][FINE] Result for check xattr: 0
+[sáb dic 23 14:47:14 CST 2023][FINE] PB Command for check version: /Volumes/Elements/Library/graalvm-jdk-21.0.1+12.1/Contents/Home/bin/java -version
+[sáb dic 23 14:47:14 CST 2023][FINE] Start process check version...
+[sáb dic 23 14:47:15 CST 2023][FINE] [SUB] java version "21.0.1" 2023-10-17
+[sáb dic 23 14:47:15 CST 2023][FINE] [SUB] Java(TM) SE Runtime Environment Oracle GraalVM 21.0.1+12.1 (build 21.0.1+12-jvmci-23.1-b19)
+[sáb dic 23 14:47:15 CST 2023][FINE] [SUB] Java HotSpot(TM) 64-Bit Server VM Oracle GraalVM 21.0.1+12.1 (build 21.0.1+12-jvmci-23.1-b19, mixed mode, sharing)
+[sáb dic 23 14:47:15 CST 2023][FINE] Result for check version: 0
+[sáb dic 23 14:47:15 CST 2023][INFO] Substrate is tested with the Gluon's GraalVM build which you can find at https://github.com/gluonhq/graal/releases.
+While you can still use other GraalVM builds, there is no guarantee that these will work properly with Substrate
+[sáb dic 23 16:37:54 CST 2023][INFO] ==================== COMPILE TASK ====================
+[sáb dic 23 16:37:55 CST 2023][INFO] We will now compile your code for aarch64-apple-darwin. This may take some time.
+[sáb dic 23 16:37:55 CST 2023][FINE] Extracting native libs to: /Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/lib
+[sáb dic 23 16:37:55 CST 2023][FINE] Looking for resource: /native/macosx/AppDelegate.m
+[sáb dic 23 16:37:55 CST 2023][FINE] Looking for resource: /native/macosx/launcher.c
+[sáb dic 23 16:37:55 CST 2023][FINE] PB Command for compile-additional-sources: gcc -c -DSUBSTRATE -mmacosx-version-min=10.12 -I/Volumes/Elements/Proyectos/Github/iSM23_PRE_MVN/target/gluonfx/aarch64-darwin/gvm/ShortcutsManager AppDelegate.m launcher.c
+[sáb dic 23 16:37:55 CST 2023][FINE] Start process compile-additional-sources...
