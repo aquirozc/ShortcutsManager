@@ -30,3 +30,4 @@ bin/
 
 ### Binaries ###
 /app/build/
+/src/target/
