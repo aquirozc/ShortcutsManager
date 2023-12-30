@@ -2,22 +2,15 @@ package com.aquirozc.shortcutsmanager.controller;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import com.aquirozc.shortcutsmanager.helper.Indexer;
-import com.aquirozc.shortcutsmanager.helper.Linker;
+import com.aquirozc.shortcutsmanager.util.Indexer;
+import com.aquirozc.shortcutsmanager.util.LinkerAction;
+import com.aquirozc.shortcutsmanager.view.AnimationFactory;
 import com.aquirozc.shortcutsmanager.view.GlassButton;
+import com.aquirozc.shortcutsmanager.view.Grid;
 import com.aquirozc.shortcutsmanager.view.ResizePolicy;
-import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.PauseTransition;
-import javafx.animation.ScaleTransition;
-import javafx.animation.Timeline;
-import javafx.animation.TranslateTransition;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -48,51 +41,47 @@ public class Controller implements IControllerFXML{
 	
 	private ScrollPane pane = (ScrollPane) parent.lookup("#target_pane");
 	private HBox box = (HBox) pane.getContent();
-	private GridPane grid = new GridPane();
+	private Grid grid = new Grid();
 	private Stage stage;
 	
 	private DirectoryChooser chooser = new DirectoryChooser();
 	
 	private ResizePolicy[] zoom = ResizePolicy.values();
 	private int level = 2;
-	private int size = zoom[2].size;
-	private int gap = zoom[2].gap;
+	private int size = zoom[level].size;
+	private int gap = zoom[level].gap;
 	
 	private List<GlassButton> index = new ArrayList<GlassButton>();
 	
 	public Controller (Stage stage) {
 		
-		System.out.println(pane);
-		
 		this.stage = stage;
 		
 		Scene scene = new Scene(parent,1000,600);
-		stage.setTitle("iShortcuts Manager 2023");
+		stage.setTitle("Shortcuts Manager");
 		stage.setScene(scene);
 		
-		openButton.setOnMouseClicked(this::openDirectory);
+		openButton.setOnMouseClicked(this::changeDirectory);	
 		
-		zoomOutButton.setOnMouseClicked(e -> {
-			updateZoom(false);
-		});		
-		
-		createButton.setOnMouseClicked(this::createShortcuts);
-		deleteButton.setOnMouseClicked(this::deleteShortcuts);
+		createButton.setOnMouseClicked(e -> doLinkerOperation(LinkerAction.CREATE));
+		deleteButton.setOnMouseClicked(e -> doLinkerOperation(LinkerAction.DELETE));
 		
 		zoomInButton.setOnMouseClicked( e -> updateZoom(true));
+		zoomOutButton.setOnMouseClicked( e -> updateZoom(false));
 		selectButton.setOnMouseClicked(e -> updateSelection(true));
 		clearButton.setOnMouseClicked(e -> updateSelection(false));
 		
 		returnButton.setOnMouseClicked(e -> System.exit(0));
 		
-		stage.widthProperty().addListener(this::resize);
+		stage.widthProperty().addListener(this::adjustGrid);
+		
 	}
 	
 	public void onCreate() {
 		stage.show();
 	}
 	
-	public void openDirectory(MouseEvent event) {
+	public void changeDirectory(MouseEvent event) {
 		
 		File file = chooser.showDialog(stage);
 		
@@ -103,35 +92,57 @@ public class Controller implements IControllerFXML{
 		nameLabel.setText(file.getName());
 		pathLabel.setText("File:/" + file.getPath());
 		
-		level = 2;
-		gap = zoom[level].gap;
-		size = zoom[level].size;		
-		grid.getChildren().clear();
-		grid.setHgap(gap);
-		grid.setVgap(gap);
-		
-		box.getChildren().clear();
-		box.getChildren().add(grid);
-		
-		long l = System.currentTimeMillis();
-		
-		index.clear();
-		index.addAll(Indexer.listApps(file).stream().parallel().map(GlassButton::new).toList());
-		Iterator<GlassButton> list = index.iterator();
+		long start = System.currentTimeMillis();
+		resetGrid(Indexer.listApps(file).stream().parallel().map(GlassButton::new).toList());
 		
 		int noColumnas = calcularColumnas();
+		int i = 0;
+		int j = 0;
+		long l =  0;
 		
-		for (int i = 0; i > -1 ;i++) {
+		for (GlassButton button : index) {
 			
-			for (int j = 0; j < noColumnas; j++) {
-				
-				if(!list.hasNext()) {
-					System.out.println(System.currentTimeMillis() - l);
-					return;
-				}
-				
-				grid.add(list.next(), j, i);
-				
+			grid.add(button, j, i);
+			
+			Duration delay = Duration.millis(l);
+			
+			AnimationFactory.getScaleTransition(button, delay).play();
+			AnimationFactory.getFadeTransition(button, delay).play();
+			
+			j++;
+			
+			if(j == noColumnas) {
+				j = 0;
+				i++;
+			}
+			
+			l += 100;
+		}
+		
+		System.out.println(System.currentTimeMillis() - start);
+		
+	}
+	
+	private void adjustGrid(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+		
+		grid.setGap(gap);
+		
+		int noColumnas = calcularColumnas();
+		int i = 0;
+		int j = 0;
+		
+		for(GlassButton button : index) {
+			
+			GridPane.setColumnIndex(button ,j);
+			GridPane.setRowIndex(button, i);
+			
+			AnimationFactory.getResizeTimeline(button, size).play();
+
+			j++;
+			
+			if(j == noColumnas) {
+				j = 0;
+				i++;
 			}
 			
 		}
@@ -151,11 +162,25 @@ public class Controller implements IControllerFXML{
 		size = zoom[level].size;
 		gap = zoom[level].gap;
 		
-		resize(null, null, null);
+		adjustGrid(null, null, null);
 	}
 	
-	public void updateSelection(boolean value) {
-		index.stream().forEach(b -> b.setFlag(value));
+	public void resetGrid(List<GlassButton> list) {
+		
+		level = 2;
+		gap = zoom[level].gap;
+		size = zoom[level].size;
+		
+		grid.getChildren().clear();
+		grid.setGap(gap);
+		
+		box.getChildren().clear();
+		box.getChildren().add(grid);
+		
+		index.clear();
+		index.addAll(list);
+		
+		
 	}
 	
 	public int calcularColumnas() {
@@ -163,75 +188,16 @@ public class Controller implements IControllerFXML{
 		return (int) Math.floor((pane.getWidth() - 20)/(size + gap) + 1/(size*gap+1));
 	}
 	
-	public void createShortcuts(MouseEvent event) {
-		index.stream().filter(b -> b.getApplication().getFlag()).map(b -> b.getApplication()).forEach(Linker::createShortcut);
-		updateSelection(false);
+	private void doLinkerOperation(LinkerAction action) {
+		index.stream()
+			.filter(b -> b.getApplication().getFlag())
+			.peek(b -> b.resetFlag())
+			.map(b -> b.getApplication())
+			.forEach(action.consumer);
 	}
 	
-	public void deleteShortcuts(MouseEvent event) {
-		index.stream().filter(b -> b.getApplication().getFlag()).map(b -> b.getApplication()).forEach(Linker::deleteShortcut);
-		updateSelection(false);
-	}
-	
-	public void resize(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-		
-		grid.setHgap(gap);
-		grid.setVgap(gap);
-		
-		Iterator<GlassButton> list = index.iterator();
-		int noColumnas = calcularColumnas();
-		
-		for (int i = 0; i < Math.ceil(index.size()/noColumnas)+ 1 ; i++) {
-			
-			for (int j = 0; j < noColumnas; j++) {
-				
-				if(!list.hasNext()) {
-					return;
-				}
-				
-				
-				
-				GlassButton button = list.next();
-				
-				final int x = j;
-				final int y = i;
-				
-				final int xx = -5 +y *(size + gap);
-				final int yy = -3 +x *(size + gap);
-				
-				
-			
-				
-
-				
-				
-				Timeline timeline = new Timeline(
-						new KeyFrame(Duration.ZERO, new KeyValue(button.decoration.minWidthProperty(), button.decoration.getWidth()), new KeyValue(button.decoration.minHeightProperty(), button.decoration.getHeight())),
-						new KeyFrame(Duration.millis(500), new KeyValue(button.decoration.minWidthProperty(), size), new KeyValue(button.decoration.minHeightProperty(), size))
-					
-						);		
-				
-				if(size <= button.size) {
-					GridPane.setColumnIndex(button ,x);
-					GridPane.setRowIndex(button, y);
-					button.resize(size);
-				}else {
-					timeline.setOnFinished(e -> {
-						GridPane.setColumnIndex(button ,x);
-						GridPane.setRowIndex(button, y);
-						button.resize(size);
-						
-					});
-				}
-				
-				
-				
-				
-				timeline.play();		
-			}
-			
-		}
-		
+	public void updateSelection(boolean value) {
+		index.stream().forEach(b -> b.setFlag(value));
 	}
 	
 }

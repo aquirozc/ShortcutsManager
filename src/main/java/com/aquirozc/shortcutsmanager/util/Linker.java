@@ -1,4 +1,4 @@
-package com.aquirozc.shortcutsmanager.helper;
+package com.aquirozc.shortcutsmanager.util;
 
 import java.io.File;
 import java.io.FileNotFoundException;

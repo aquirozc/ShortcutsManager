@@ -15,6 +15,14 @@ public class Application {
 		return bundle;
 	}
 	
+	public String getName() {
+		return bundle.getName();
+	}
+	
+	public String getPath() {
+		return bundle.getAbsolutePath();
+	}
+	
 	public boolean getFlag() {
 		return isSelected;
 	}
@@ -23,8 +31,8 @@ public class Application {
 		isSelected = value;
 	}
 	
-	public void toggleFlag() {
-		isSelected = !isSelected;
+	public boolean toggleFlag() {
+		return isSelected = !isSelected;
 	}
 	
 

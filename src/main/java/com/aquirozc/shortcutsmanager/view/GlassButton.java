@@ -1,6 +1,6 @@
 package com.aquirozc.shortcutsmanager.view;
 
-import com.aquirozc.shortcutsmanager.helper.IconFinder;
+import com.aquirozc.shortcutsmanager.util.IconFinder;
 import com.aquirozc.shortcutsmanager.init.ShortcutsManager;
 import com.aquirozc.shortcutsmanager.model.Application;
 
@@ -16,11 +16,10 @@ import javafx.scene.paint.Color;
 
 public class GlassButton extends Button{
 	
-	public Region decoration = new Region();
+	private Region decoration = new Region();
 	private StackPane graphic = new StackPane(decoration);
 	private Application application;
 	private ImageView view;
-	public int size = 110;
 	
 	public GlassButton(Application application) {
 		
@@ -47,6 +46,7 @@ public class GlassButton extends Button{
 		decoration.getStyleClass().add("glass-box");
 		decoration.setEffect(d1);
 		
+		this.setOpacity(0);
 		graphic.getChildren().add(view);
 		this.setGraphic(graphic);
 		
@@ -54,38 +54,38 @@ public class GlassButton extends Button{
 		
 	}
 	
-	public Application getApplication() {
-		return application;
+	private void onPressed(MouseEvent event) {
+		setFlag(application.toggleFlag());
+		
 	}
 	
-	public void onPressed(MouseEvent event) {
-		//System.out.println("X = " + this.getBoundsInParent().getMinX());
-		//System.out.println("Y = " + this.getBoundsInParent().getMinY());
-		System.out.println("X = " + this.layoutXProperty());
-		System.out.println("Y = " + this.layoutYProperty());
-		application.toggleFlag();
-		paint();
-		
+	public void resetFlag() {
+		setFlag(false);
 	}
 	
 	public void setFlag(boolean value) {
 		application.setFlag(value);
-		paint();
-		
+		updateDecoration(value);
 	}
 	
-	public void resize(int size) {
-		decoration.setMinWidth(size);
-		decoration.setMinHeight(size);
-		decoration.setPrefWidth(size);
-		decoration.setPrefHeight(size);
-		view.setFitWidth(size - 20);
-		view.setFitHeight(size -20);
-		this.size = size;
+	public boolean getFlag() {
+		return application.getFlag();
 	}
 	
-	private void paint() {
-		decoration.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), application.getFlag());
+	private void updateDecoration(Boolean isSelected) {
+		decoration.pseudoClassStateChanged(PseudoClass.getPseudoClass("selected"), isSelected);
+	}
+	
+	public Application getApplication() {
+		return application;
+	}
+	
+	public ImageView getView() {
+		return view;
+	}
+	
+	public Region getDecoration() {
+		return decoration;
 	}
 
 }
